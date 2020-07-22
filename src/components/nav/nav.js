@@ -40,14 +40,14 @@ const Nav = () => {
                     </a>
                 </li> */}
                 {/* </template> */}
-                {/* <>
-                    <li>
+                <>
+                    <Li>
                         <Link to='/login'>Login</Link>
-                    </li>
-                    <li>
+                    </Li>
+                    <Li>
                         <Link to='/register'>Register</Link>
-                    </li>
-                </> */}
+                    </Li>
+                </>
             </Ul>
         </nav>
     )

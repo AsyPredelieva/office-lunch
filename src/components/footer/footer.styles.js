@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import Nav from '../nav/nav'
 import Logo from '../logo'
