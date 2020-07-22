@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import heroImg from '../../assets/hero.jpg'
 import shining from '../../assets/shining.png'
@@ -50,7 +49,7 @@ export const Intro = styled.div`
     }
 `
 
-// @keyframes shine {
+// const shine = keyframes`
 //     0% {
 //         opacity: 0;
 //         -webkit-transform: scale(0.5) rotate(0deg);
@@ -66,4 +65,4 @@ export const Intro = styled.div`
 //         -webkit-transform: scale(0.1) rotate(0deg);
 //         transform: scale(0.1) rotate(0deg);
 //     }
-// }
+// `
