@@ -1,10 +1,10 @@
 import styled from 'styled-components'
+import loginBackground from '../../assets/login-bckgr.png'
 
 export const LoginContainer = styled.main`
     width: 100%;
-    background: url('../assets/login-bckgr.png') right top 40px no-repeat;
+    background: url(${loginBackground}) right top 40px no-repeat;
     background-size: contain;
-    /* text-align: center; */
 `
 
 export const InnerContainer = styled.div`
