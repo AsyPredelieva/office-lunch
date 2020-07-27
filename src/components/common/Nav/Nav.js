@@ -1,20 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Ul, Li, MenuBtn, MenuIcon, NavIcon } from './Nav.styles'
+import { NavStyled } from './Nav.styles'
 
 const Nav = () => {
     return (
-        <nav>
-            <MenuBtn type='checkbox' id='menu-btn' />
-            <MenuIcon htmlFor='menu-btn'>
-                <NavIcon />
-            </MenuIcon>
-            <Ul>
-                <Li>
+        <NavStyled>
+            <input className='menu-btn' type='checkbox' id='menu-btn' />
+            <label className='menu-icon' htmlFor='menu-btn'>
+                <span className='nav-icon'></span>
+            </label>
+            <ul>
+                <li>
                     <Link to='/' exact='true'>
                         Home
                     </Link>
-                </Li>
+                </li>
                 {/* <template v-if='isAuthenticated'> */}
                 <li className='sub-nav'>
                     <Link to='/offers'>Offers</Link>
@@ -42,15 +42,15 @@ const Nav = () => {
                 </li> */}
                 {/* </template> */}
                 <>
-                    <Li>
+                    <li>
                         <Link to='/login'>Login</Link>
-                    </Li>
-                    <Li>
+                    </li>
+                    <li>
                         <Link to='/register'>Register</Link>
-                    </Li>
+                    </li>
                 </>
-            </Ul>
-        </nav>
+            </ul>
+        </NavStyled>
     )
 }
 
