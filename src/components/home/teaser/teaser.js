@@ -5,16 +5,16 @@ const Teaser = () => {
     return (
         <>
             <Li className='quick grid-aside'>
-                <strong>Quick</strong>
-                Teaser description
+                <strong>Quickly and easily</strong>
+                find out the actual menus.
             </Li>
             <Li className='easy grid-aside'>
-                <strong>Easy</strong>
-                Teaser description
+                <strong>Simply and calmly</strong>
+                make your choice.
             </Li>
             <Li className='gently grid-aside'>
-                <strong>Fast</strong>
-                Teaser description
+                <strong>Gently and precisely</strong>
+                order your favourite meal.
             </Li>
         </>
     )

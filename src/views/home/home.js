@@ -2,25 +2,27 @@ import React from 'react'
 import PageLayout from '../page-layout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
+import Quotes from '../../components/Home/Quotes/Quotes'
+import { TeaserList, QuotesContainer } from './home.styles'
 
 const Home = () => {
     return (
         <PageLayout>
             <Hero />
-
             <div className='container'>
                 <h2>The best time of the day is comming</h2>
 
-                <ul className='teaser grid-container'>
+                <TeaserList className='grid-container'>
                     <Teaser />
-                </ul>
+                </TeaserList>
             </div>
 
-            <div className='quotes-container' v-if='isAuthenticated'>
+            {/* if isAuth */}
+            <QuotesContainer>
                 <div className='container'>
-                    {/* <Quotes v-for="quote in quotes" :key="quote.id" :quote-item="quote"></Quotes> */}
+                    <Quotes />
                 </div>
-            </div>
+            </QuotesContainer>
 
             {/* <div className="info-container" v-if="isAuthenticated">
             <img
