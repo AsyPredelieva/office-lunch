@@ -1,7 +1,7 @@
 import React from 'react'
 import PageLayout from '../page-layout'
 import OfferItem from '../../components/Offers/OfferItem/OfferItem'
-import { OffersContainer } from './offers.styles'
+import { OffersContainer, OffersList } from './offers.styles'
 
 const Offers = () => {
     return (
@@ -13,9 +13,9 @@ const Offers = () => {
                 <Loader />
             </div> */}
                 <div>
-                    <ul className='offers'>
+                    <OffersList>
                         <OfferItem />
-                    </ul>
+                    </OffersList>
                 </div>
             </OffersContainer>
         </PageLayout>

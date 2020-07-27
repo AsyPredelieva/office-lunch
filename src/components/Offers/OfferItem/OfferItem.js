@@ -33,6 +33,15 @@ const OfferItem = () => {
                     Get Menu
                 </Link>
             </Li>
+            <Li className='grid-small'>
+                <h3>Toro grande</h3>
+                <ImgContainer>
+                    <img src={imgBckgr} alt='ToroGrande' />
+                </ImgContainer>
+                <Link to={`/offers/ToroGrande`} className='cta-btn'>
+                    Get Menu
+                </Link>
+            </Li>
         </>
     )
 }
