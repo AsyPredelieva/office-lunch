@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { HeroStyled, Intro } from './hero.styles'
+import styles from './hero.styles.scss'
 
 const Hero = () => {
     return (
-        <HeroStyled>
+        <HeroStyled className='hero'>
             <div className='container'>
                 <Intro>
                     <h1>Are you feeling hungry?</h1>

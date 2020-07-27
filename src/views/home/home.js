@@ -5,24 +5,23 @@ import Hero from '../../components/hero/hero'
 const Home = () => {
     return (
         <PageLayout>
-            <main className='home'>
-                <Hero />
+            <Hero />
 
+            <div className='container'>
+                <h2>The best time of the day is comming</h2>
+
+                <ul className='teaser grid-container'>
+                    {/* <Teaser v-for="teaser in teasers" :key="teaser.id" :teaser-item="teaser"></Teaser> */}
+                </ul>
+            </div>
+
+            <div className='quotes-container' v-if='isAuthenticated'>
                 <div className='container'>
-                    <h2>The best time of the day is comming</h2>
-
-                    <ul className='teaser grid-container'>
-                        {/* <Teaser v-for="teaser in teasers" :key="teaser.id" :teaser-item="teaser"></Teaser> */}
-                    </ul>
+                    {/* <Quotes v-for="quote in quotes" :key="quote.id" :quote-item="quote"></Quotes> */}
                 </div>
+            </div>
 
-                <div className='quotes-container' v-if='isAuthenticated'>
-                    <div className='container'>
-                        {/* <Quotes v-for="quote in quotes" :key="quote.id" :quote-item="quote"></Quotes> */}
-                    </div>
-                </div>
-
-                {/* <div className="info-container" v-if="isAuthenticated">
+            {/* <div className="info-container" v-if="isAuthenticated">
             <img
                 v-parallax="0.2"
                 className="parallax-item tomato-left"
@@ -70,7 +69,6 @@ const Home = () => {
                 </div>
             </div>
         </div> */}
-            </main>
         </PageLayout>
     )
 }
