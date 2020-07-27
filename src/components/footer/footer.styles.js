@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Nav from '../nav/nav'
-import Logo from '../logo'
+import Nav from '../Nav/Nav'
+import Logo from '../Logo/logo'
 
 export const FooterStyled = styled.footer`
     width: 100%;

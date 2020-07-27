@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { HeroStyled, Intro } from './hero.styles'
-import styles from './hero.styles.scss'
+import { HeroStyled, Intro } from './Hero.styles'
 
 const Hero = () => {
     return (

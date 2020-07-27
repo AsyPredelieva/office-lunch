@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Ul, Li, MenuBtn, MenuIcon, NavIcon } from './nav.styles'
+import { Ul, Li, MenuBtn, MenuIcon, NavIcon } from './Nav.styles'
 
 const Nav = () => {
     return (
