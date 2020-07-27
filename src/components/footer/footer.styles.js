@@ -42,8 +42,3 @@ export const FooterNav = styled(Nav)`
 export const FooterLogo = styled(Logo)`
     width: 80px;
 `
-
-/* .logo-container,
-    small {
-        align-self: center;
-    } */
