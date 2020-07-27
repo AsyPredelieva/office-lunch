@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../Logo/logo'
+import Logo from '../Logo/Logo'
 import Nav from '../Nav/Nav'
 import { HeaderStyled, NavContainer, WelcomeBox } from './Header.styles'
 
