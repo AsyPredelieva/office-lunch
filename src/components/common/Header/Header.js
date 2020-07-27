@@ -1,7 +1,7 @@
 import React from 'react'
-import Logo from '../logo'
-import Nav from '../nav/nav'
-import { HeaderStyled, NavContainer, WelcomeBox } from './header.styles'
+import Logo from '../Logo/Logo'
+import Nav from '../Nav/Nav'
+import { HeaderStyled, NavContainer, WelcomeBox } from './Header.styles'
 
 const Header = () => {
     return (

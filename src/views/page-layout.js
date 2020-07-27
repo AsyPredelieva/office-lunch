@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/header/header'
-import Footer from '../components/footer/footer'
+import Header from '../components/common/Header/Header'
+import Footer from '../components/common/Footer/Footer'
 
 const PageLayout = (props) => {
     return (

@@ -1,28 +1,33 @@
 import React from 'react'
 import PageLayout from '../page-layout'
-import Hero from '../../components/hero/hero'
+import Hero from '../../components/Home/Hero/Hero'
+import Teaser from '../../components/Home/Teaser/Teaser'
+import Quotes from '../../components/Home/Quotes/Quotes'
+import Article from '../../components/Home/Article/Article'
+import { TeaserList, QuotesContainer, InfoContainer } from './home.styles'
 
 const Home = () => {
     return (
         <PageLayout>
             <Hero />
-
             <div className='container'>
                 <h2>The best time of the day is comming</h2>
 
-                <ul className='teaser grid-container'>
-                    {/* <Teaser v-for="teaser in teasers" :key="teaser.id" :teaser-item="teaser"></Teaser> */}
-                </ul>
+                <TeaserList className='grid-container'>
+                    <Teaser />
+                </TeaserList>
             </div>
 
-            <div className='quotes-container' v-if='isAuthenticated'>
+            {/* if isAuth */}
+            <QuotesContainer>
                 <div className='container'>
-                    {/* <Quotes v-for="quote in quotes" :key="quote.id" :quote-item="quote"></Quotes> */}
+                    <Quotes />
                 </div>
-            </div>
+            </QuotesContainer>
 
-            {/* <div className="info-container" v-if="isAuthenticated">
-            <img
+            {/* if isAuth */}
+            <InfoContainer>
+                {/* <img
                 v-parallax="0.2"
                 className="parallax-item tomato-left"
                 src="../assets/domat_1.png"
@@ -51,24 +56,20 @@ const Home = () => {
                 className="parallax-item chuska-right"
                 src="../assets/chuska_2.png"
                 alt="peper"
-            />
+            /> */}
 
-            <div className="container">
-                <h2>Healthy Eating</h2>
-                <div v-if="!articles">
+                <div className='container'>
+                    <h2>Healthy Eating</h2>
+                    {/* <div v-if="!articles">
                     <Loader />
+                </div> */}
+                    <div>
+                        <section className='grid-container'>
+                            <Article />
+                        </section>
+                    </div>
                 </div>
-                <div v-else>
-                    <section className="grid-container">
-                        <Article
-                            v-for="article in articles"
-                            :key="article.id"
-                            :article-item="article"
-                        ></Article>
-                    </section>
-                </div>
-            </div>
-        </div> */}
+            </InfoContainer>
         </PageLayout>
     )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import Nav from '../nav/nav'
-import { FooterStyled, FooterLogo } from './footer.styles'
+import Nav from '../Nav/Nav'
+import { FooterStyled, FooterLogo } from './Footer.styles'
 
 const Footer = () => {
     return (
