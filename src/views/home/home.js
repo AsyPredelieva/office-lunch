@@ -1,6 +1,7 @@
 import React from 'react'
 import PageLayout from '../page-layout'
 import Hero from '../../components/Home/Hero/Hero'
+import Teaser from '../../components/Home/Teaser/Teaser'
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
                 <h2>The best time of the day is comming</h2>
 
                 <ul className='teaser grid-container'>
-                    {/* <Teaser v-for="teaser in teasers" :key="teaser.id" :teaser-item="teaser"></Teaser> */}
+                    <Teaser />
                 </ul>
             </div>
 
