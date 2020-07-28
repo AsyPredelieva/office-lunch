@@ -1,33 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Ul, Li, MenuBtn, MenuIcon, NavIcon } from './Nav.styles'
+import { NavStyled } from './Nav.styles'
 
 const Nav = () => {
     return (
-        <nav>
-            <MenuBtn type='checkbox' id='menu-btn' />
-            <MenuIcon htmlFor='menu-btn'>
-                <NavIcon />
-            </MenuIcon>
-            <Ul>
-                <Li>
+        <NavStyled>
+            <input className='menu-btn' type='checkbox' id='menu-btn' />
+            <label className='menu-icon' htmlFor='menu-btn'>
+                <span className='nav-icon'></span>
+            </label>
+            <ul>
+                <li>
                     <Link to='/' exact='true'>
                         Home
                     </Link>
-                </Li>
+                </li>
                 {/* <template v-if='isAuthenticated'> */}
-                {/* <li className='sub-nav'>
+                <li className='sub-nav'>
                     <Link to='/offers'>Offers</Link>
                     <input className='sub-menu-btn' type='checkbox' id='sub-menu-btn' />
-                    <label className='sub-menu-icon' for='sub-menu-btn'>
+                    <label className='sub-menu-icon' htmlFor='sub-menu-btn'>
                         <span className='nav-icon'></span>
                     </label>
                     <ul>
-                        <li for='offer in offers' key='offer.id'>
-                            <Link>{offer.name}</Link>
+                        <li>
+                            <Link to={'/offers/Kamenica'}>Kamenica</Link>
                         </li>
                     </ul>
                 </li>
+                {/* 
                 <li className='sub-nav'>
                     <Link to='/orders'>Orders</Link>
                 </li>
@@ -41,15 +42,15 @@ const Nav = () => {
                 </li> */}
                 {/* </template> */}
                 <>
-                    <Li>
+                    <li>
                         <Link to='/login'>Login</Link>
-                    </Li>
-                    <Li>
+                    </li>
+                    <li>
                         <Link to='/register'>Register</Link>
-                    </Li>
+                    </li>
                 </>
-            </Ul>
-        </nav>
+            </ul>
+        </NavStyled>
     )
 }
 
