@@ -1,6 +1,6 @@
 import React from 'react'
-import PageLayout from '../page-layout'
-import { LoginContainer, InnerContainer, LoginForm } from './login.styles'
+import PageLayout from '../PageLayout'
+import { LoginContainer, InnerContainer, LoginForm } from './Login.styles'
 
 const Login = () => {
     return (

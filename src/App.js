@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.scss'
-import Home from './views/home/home'
-import Offers from './views/offers/offersList/offersList'
-import Login from './views/login/login'
-import Register from './views/register/register'
+import Home from './pages/Home/Home'
+import Offers from './pages/Offers/OffersList/OffersList'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+import OfferDetails from './pages/Offers/OfferDetails/OfferDetails'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import OfferDetails from './views/offers/offerDetails/offerDetails'
 
 function App() {
     return (

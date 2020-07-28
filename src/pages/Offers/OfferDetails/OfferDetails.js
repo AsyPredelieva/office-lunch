@@ -1,5 +1,5 @@
 import React from 'react'
-import PageLayout from '../../page-layout'
+import PageLayout from '../../PageLayout'
 // import CurrentOrder from '../../Orders/CurrentOrder'
 import {
     OfferDetailsStyled,
@@ -7,7 +7,7 @@ import {
     CurrentOrderStyled,
     OrderDetail,
     TotalPrice,
-} from './offerDetails.styles'
+} from './OfferDetails.styles'
 
 const OfferDetails = () => {
     return (
