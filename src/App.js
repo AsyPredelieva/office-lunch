@@ -5,7 +5,7 @@ import Offers from './views/offers/offersList/offersList'
 import Login from './views/login/login'
 import Register from './views/register/register'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import OfferDetails from './views/offers/OfferDetails/OfferDetails'
+import OfferDetails from './views/offers/offerDetails/offerDetails'
 
 function App() {
     return (
