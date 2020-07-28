@@ -1,7 +1,7 @@
 import React from 'react'
-import PageLayout from '../page-layout'
-import OfferItem from '../../components/Offers/OfferItem/OfferItem'
-import { OffersContainer, Offers } from './offersList.styles'
+import PageLayout from '../../page-layout'
+import OfferItem from '../../../components/Offers/OfferItem/OfferItem'
+import { OffersContainer, OffersList } from './offersList.styles'
 
 const Offers = () => {
     return (
