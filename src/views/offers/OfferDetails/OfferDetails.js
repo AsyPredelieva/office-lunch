@@ -7,7 +7,7 @@ import {
     CurrentOrderStyled,
     OrderDetail,
     TotalPrice,
-} from './OfferDetails.styles'
+} from './offerDetails.styles'
 
 const OfferDetails = () => {
     return (

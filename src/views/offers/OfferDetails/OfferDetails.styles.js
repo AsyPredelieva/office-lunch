@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import offerDetailsBckgr from '../../../assets/offer-details-bckgr.png'
+import offerDetailsBckgrRight from '../../../assets/offer-details-bckgr_.png'
 
 export const OfferDetailsStyled = styled.div`
     width: 100%;
     height: 100%;
     padding: 40px 0;
-    background-image: url('../../assets/offer-details-bckgr.png'),
-        url('../../assets/offer-details-bckgr_.png');
+    background-image: url(${offerDetailsBckgr}), url(${offerDetailsBckgrRight});
     background-position: left top, right bottom 20%;
     background-repeat: no-repeat;
     background-size: 25%;
