@@ -1,6 +1,6 @@
 import React from 'react'
+import CurrentOrder from '../../../components/Orders/CurrentOrder/CurrentOrder'
 import PageLayout from '../../PageLayout'
-// import CurrentOrder from '../../Orders/CurrentOrder'
 import {
     OfferDetailsStyled,
     OfferMenuList,
@@ -44,7 +44,9 @@ const OfferDetails = () => {
                             <>
                                 <CurrentOrderStyled>
                                     <h3>I'll take for lunch:</h3>
-                                    <ul>{/* <CurrentOrder /> */}</ul>
+                                    <ul>
+                                        <CurrentOrder />
+                                    </ul>
                                     <TotalPrice>
                                         <strong>Total sum:</strong>
                                         <strong>4.50 lv</strong>
