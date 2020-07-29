@@ -1,6 +1,6 @@
 import React from 'react'
-import PageLayout from '../page-layout'
-import { RegisterContainer, InnerContainer, GridFull } from './register.styles'
+import PageLayout from '../PageLayout'
+import { RegisterContainer, InnerContainer, GridFull } from './Register.styles'
 
 const Register = () => {
     return (

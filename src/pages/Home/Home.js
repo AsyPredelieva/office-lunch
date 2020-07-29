@@ -1,10 +1,10 @@
 import React from 'react'
-import PageLayout from '../page-layout'
+import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
 import Quotes from '../../components/Home/Quotes/Quotes'
 import Article from '../../components/Home/Article/Article'
-import { TeaserList, QuotesContainer, InfoContainer } from './home.styles'
+import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
 
 const Home = () => {
     return (

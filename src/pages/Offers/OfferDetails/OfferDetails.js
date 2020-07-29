@@ -1,13 +1,13 @@
 import React from 'react'
-import PageLayout from '../../page-layout'
-// import CurrentOrder from '../../Orders/CurrentOrder'
+import CurrentOrder from '../../../components/Orders/CurrentOrder/CurrentOrder'
+import PageLayout from '../../PageLayout'
 import {
     OfferDetailsStyled,
     OfferMenuList,
     CurrentOrderStyled,
     OrderDetail,
     TotalPrice,
-} from './offerDetails.styles'
+} from './OfferDetails.styles'
 
 const OfferDetails = () => {
     return (
@@ -44,7 +44,9 @@ const OfferDetails = () => {
                             <>
                                 <CurrentOrderStyled>
                                     <h3>I'll take for lunch:</h3>
-                                    <ul>{/* <CurrentOrder /> */}</ul>
+                                    <ul>
+                                        <CurrentOrder />
+                                    </ul>
                                     <TotalPrice>
                                         <strong>Total sum:</strong>
                                         <strong>4.50 lv</strong>

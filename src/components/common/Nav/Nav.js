@@ -28,10 +28,10 @@ const Nav = () => {
                         </li>
                     </ul>
                 </li>
-                {/* 
                 <li className='sub-nav'>
                     <Link to='/orders'>Orders</Link>
                 </li>
+                {/* 
                 <li className='sub-nav'>
                     <Link to='/MyOrders'>My Orders</Link>
                 </li>
