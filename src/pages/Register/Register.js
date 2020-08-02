@@ -117,7 +117,7 @@ class Register extends Component {
                                 </div>
                             </div>
                             <GridFull className='grid-full'>
-                                <Button title='Submit' />
+                                <Button title='Submit' type='submit' />
                             </GridFull>
                         </form>
                     </InnerContainer>
