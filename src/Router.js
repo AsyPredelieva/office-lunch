@@ -5,6 +5,7 @@ import Register from './pages/Register/Register'
 import OffersList from './pages/Offers/OffersList/OffersList'
 import OfferDetails from './pages/Offers/OfferDetails/OfferDetails'
 import Orders from './pages/Orders/Orders'
+import NotFound from './pages/NotFound/NotFound'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Route path='/offers' exact component={OffersList} />
                 <Route path='/offers/Kamenica' exact component={OfferDetails} />
                 <Route path='/orders' exact component={Orders} />
+                <Route path='*' component={NotFound} />
             </Switch>
         </BrowserRouter>
     )
