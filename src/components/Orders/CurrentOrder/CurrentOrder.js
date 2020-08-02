@@ -8,7 +8,7 @@ const CurrentOrder = () => {
             <OrderDetail>
                 <span>2</span>
                 <span className='price'>5.50 lv</span>
-                <span class='remove-icon'>
+                <span className='remove-icon'>
                     {/* <svg
                         xmlns='http://www.w3.org/2000/svg'
                         xmlns:xlink='http://www.w3.org/1999/xlink'
