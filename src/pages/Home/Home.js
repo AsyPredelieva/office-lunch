@@ -11,27 +11,25 @@ class Home extends Component {
     static contextType = UserContext
 
     render() {
+        const { isAuth } = this.context
         console.log(this.context)
         return (
             <PageLayout>
                 <Hero />
                 <div className='container'>
                     <h2>The best time of the day is comming</h2>
-
                     <TeaserList className='grid-container'>
                         <Teaser />
                     </TeaserList>
                 </div>
-
-                {/* if isAuth */}
+                isAuth && (
                 <QuotesContainer>
                     <div className='container'>
                         <Quotes />
                     </div>
                 </QuotesContainer>
-
-                {/* if isAuth */}
                 <InfoContainer>
+                    )
                     {/* <img
                 v-parallax="0.2"
                 className="parallax-item tomato-left"
@@ -62,7 +60,6 @@ class Home extends Component {
                 src="../assets/chuska_2.png"
                 alt="peper"
             /> */}
-
                     <div className='container'>
                         <h2>Healthy Eating</h2>
                         {/* <div v-if="!articles">
