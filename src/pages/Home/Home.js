@@ -22,56 +22,58 @@ class Home extends Component {
                         <Teaser />
                     </TeaserList>
                 </div>
-                isAuth && (
-                <QuotesContainer>
-                    <div className='container'>
-                        <Quotes />
-                    </div>
-                </QuotesContainer>
-                <InfoContainer>
-                    )
-                    {/* <img
-                v-parallax="0.2"
-                className="parallax-item tomato-left"
-                src="../assets/domat_1.png"
-                alt="tomato"
-            />
-            <img
-                v-parallax="0.3"
-                className="parallax-item tomato-right"
-                src="../assets/domat_2.png"
-                alt="tomato"
-            />
-            <img
-                v-parallax="0.4"
-                className="parallax-item olive"
-                src="../assets/olive_1.png"
-                alt="olive"
-            />
-            <img
-                v-parallax="0.2"
-                className="parallax-item chuska-left"
-                src="../assets/chuska_1.png"
-                alt="peper"
-            />
-            <img
-                v-parallax="0.5"
-                className="parallax-item chuska-right"
-                src="../assets/chuska_2.png"
-                alt="peper"
-            /> */}
-                    <div className='container'>
-                        <h2>Healthy Eating</h2>
-                        {/* <div v-if="!articles">
-                    <Loader />
-                </div> */}
-                        <div>
-                            <section className='grid-container'>
-                                <Article />
-                            </section>
-                        </div>
-                    </div>
-                </InfoContainer>
+                {isAuth && (
+                    <>
+                        <QuotesContainer>
+                            <div className='container'>
+                                <Quotes />
+                            </div>
+                        </QuotesContainer>
+                        <InfoContainer>
+                            {/* <img
+                                v-parallax="0.2"
+                                className="parallax-item tomato-left"
+                                src="../assets/domat_1.png"
+                                alt="tomato"
+                            />
+                            <img
+                                v-parallax="0.3"
+                                className="parallax-item tomato-right"
+                                src="../assets/domat_2.png"
+                                alt="tomato"
+                            />
+                            <img
+                                v-parallax="0.4"
+                                className="parallax-item olive"
+                                src="../assets/olive_1.png"
+                                alt="olive"
+                            />
+                            <img
+                                v-parallax="0.2"
+                                className="parallax-item chuska-left"
+                                src="../assets/chuska_1.png"
+                                alt="peper"
+                            />
+                            <img
+                                v-parallax="0.5"
+                                className="parallax-item chuska-right"
+                                src="../assets/chuska_2.png"
+                                alt="peper"
+                            /> */}
+                            <div className='container'>
+                                <h2>Healthy Eating</h2>
+                                {/* <div v-if="!articles">
+                                    <Loader />
+                                </div> */}
+                                <div>
+                                    <section className='grid-container'>
+                                        <Article />
+                                    </section>
+                                </div>
+                            </div>
+                        </InfoContainer>
+                    </>
+                )}
             </PageLayout>
         )
     }
