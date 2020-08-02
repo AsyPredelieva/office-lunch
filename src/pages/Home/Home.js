@@ -1,33 +1,38 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
 import Quotes from '../../components/Home/Quotes/Quotes'
 import Article from '../../components/Home/Article/Article'
+import UserContext from '../../Context'
 import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
 
-const Home = () => {
-    return (
-        <PageLayout>
-            <Hero />
-            <div className='container'>
-                <h2>The best time of the day is comming</h2>
+class Home extends Component {
+    static contextType = UserContext
 
-                <TeaserList className='grid-container'>
-                    <Teaser />
-                </TeaserList>
-            </div>
-
-            {/* if isAuth */}
-            <QuotesContainer>
+    render() {
+        console.log(this.context)
+        return (
+            <PageLayout>
+                <Hero />
                 <div className='container'>
-                    <Quotes />
-                </div>
-            </QuotesContainer>
+                    <h2>The best time of the day is comming</h2>
 
-            {/* if isAuth */}
-            <InfoContainer>
-                {/* <img
+                    <TeaserList className='grid-container'>
+                        <Teaser />
+                    </TeaserList>
+                </div>
+
+                {/* if isAuth */}
+                <QuotesContainer>
+                    <div className='container'>
+                        <Quotes />
+                    </div>
+                </QuotesContainer>
+
+                {/* if isAuth */}
+                <InfoContainer>
+                    {/* <img
                 v-parallax="0.2"
                 className="parallax-item tomato-left"
                 src="../assets/domat_1.png"
@@ -58,20 +63,21 @@ const Home = () => {
                 alt="peper"
             /> */}
 
-                <div className='container'>
-                    <h2>Healthy Eating</h2>
-                    {/* <div v-if="!articles">
+                    <div className='container'>
+                        <h2>Healthy Eating</h2>
+                        {/* <div v-if="!articles">
                     <Loader />
                 </div> */}
-                    <div>
-                        <section className='grid-container'>
-                            <Article />
-                        </section>
+                        <div>
+                            <section className='grid-container'>
+                                <Article />
+                            </section>
+                        </div>
                     </div>
-                </div>
-            </InfoContainer>
-        </PageLayout>
-    )
+                </InfoContainer>
+            </PageLayout>
+        )
+    }
 }
 
 export default Home

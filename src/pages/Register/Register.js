@@ -4,6 +4,7 @@ import Input from '../../components/common/Input/Input'
 import Button from '../../components/common/Button/Button'
 import { RegisterContainer, InnerContainer, GridFull } from './Register.styles'
 import authenticate from '../../services/authServices'
+import UserContext from '../../Context'
 
 class Register extends Component {
     constructor(props) {
@@ -18,6 +19,8 @@ class Register extends Component {
             rePassword: '',
         }
     }
+
+    static contextType = UserContext
 
     onChange = (ev, type) => {
         const fieldValue = {}
@@ -41,8 +44,8 @@ class Register extends Component {
                 password,
                 rePassword,
             },
-            () => {
-                console.log('Yeeyyy')
+            (user) => {
+                this.context.logIn(user)
                 this.props.history.push('/')
             },
             (err) => console.log('Error: ', err)

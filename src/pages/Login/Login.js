@@ -4,6 +4,7 @@ import Input from '../../components/common/Input/Input'
 import Button from '../../components/common/Button/Button'
 import { LoginContainer, InnerContainer, LoginForm } from './Login.styles'
 import authenticate from '../../services/authServices'
+import UserContext from '../../Context'
 
 class Login extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ class Login extends Component {
             password: '',
         }
     }
+
+    static contextType = UserContext
 
     handleChange = (e, type) => {
         const fieldValue = {}
@@ -32,8 +35,8 @@ class Login extends Component {
         await authenticate(
             'http://localhost:9999/api/user/login',
             { username, password },
-            () => {
-                console.log('Yeeyyy')
+            (user) => {
+                this.context.logIn(user)
                 this.props.history.push('/')
             },
             (err) => console.log('Error:', e)
