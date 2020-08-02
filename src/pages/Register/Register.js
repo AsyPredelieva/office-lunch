@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PageLayout from '../PageLayout'
 import Input from '../../components/common/Input/Input'
+import Button from '../../components/common/Button/Button'
 import { RegisterContainer, InnerContainer, GridFull } from './Register.styles'
 
 class Register extends Component {
@@ -92,7 +93,7 @@ class Register extends Component {
                                 </div>
                             </div>
                             <GridFull className='grid-full'>
-                                <button className='cta-btn'>Submit</button>
+                                <Button title='Submit' />
                             </GridFull>
                         </form>
                     </InnerContainer>

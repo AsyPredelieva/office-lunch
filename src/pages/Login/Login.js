@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PageLayout from '../PageLayout'
 import Input from '../../components/common/Input/Input'
+import Button from '../../components/common/Button/Button'
 import { LoginContainer, InnerContainer, LoginForm } from './Login.styles'
 
 class Login extends Component {
@@ -47,7 +48,7 @@ class Login extends Component {
                                     onChange={(e) => this.onChange(e, 'password')}
                                 />
                             </div>
-                            <button className='cta-btn'>Log in</button>
+                            <Button title='Log in' />
                         </LoginForm>
                     </InnerContainer>
                 </LoginContainer>
