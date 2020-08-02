@@ -7,7 +7,7 @@ const Orders = () => {
     return (
         <PageLayout>
             <OrdersContainer>
-                <div class='container'>
+                <div className='container'>
                     <h2>All orders</h2>
                     {/* if="!orderList"
                 <div>
@@ -16,7 +16,7 @@ const Orders = () => {
                     <div>
                         <ul>
                             <li>
-                                <CurrentOrderStyled class='current-order'>
+                                <CurrentOrderStyled className='current-order'>
                                     <h3>
                                         <span>Order</span>
                                         <span>12.08.2020</span>
@@ -24,7 +24,7 @@ const Orders = () => {
                                     <ul>
                                         <CurrentOrder />
                                     </ul>
-                                    <div class='total-price'>
+                                    <div className='total-price'>
                                         <strong>Total sum:</strong>
                                         <strong>7.90 lv</strong>
                                     </div>

@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { NavStyled } from './Nav.styles'
 import UserContext from '../../../Context'
 
 class Nav extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            username: '',
+        }
+    }
+
     static contextType = UserContext
+
+    logOut = () => {
+        this.context.logOut()
+
+        return <Redirect to='/' />
+    }
 
     render() {
         const { isAuth } = this.context
@@ -33,20 +47,22 @@ class Nav extends Component {
                             </li>
                         </ul>
                     </li>
-                    <li className='sub-nav'>
-                        <Link to='/orders'>Orders</Link>
-                    </li>
-                    {/* 
-                <li className='sub-nav'>
-                    <Link to='/MyOrders'>My Orders</Link>
-                </li>
-                <li>
-                    <a onClick={onLogout} className='logout'>
-                        Logout
-                    </a>
-                </li> */}
-                    {/* </template> */}
-                    {!isAuth && (
+                    {isAuth ? (
+                        <>
+                            <li className='sub-nav'>
+                                <Link to='/orders'>Orders</Link>
+                            </li>
+                            {/* 
+                            <li className='sub-nav'>
+                                <Link to='/MyOrders'>My Orders</Link>
+                            </li> */}
+                            <li>
+                                <a onClick={this.logOut} className='logout'>
+                                    Logout
+                                </a>
+                            </li>
+                        </>
+                    ) : (
                         <>
                             <li>
                                 <Link to='/login'>Login</Link>
