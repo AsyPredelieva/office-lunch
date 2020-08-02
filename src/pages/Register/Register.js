@@ -3,6 +3,7 @@ import PageLayout from '../PageLayout'
 import Input from '../../components/common/Input/Input'
 import Button from '../../components/common/Button/Button'
 import { RegisterContainer, InnerContainer, GridFull } from './Register.styles'
+import authenticate from '../../services/authServices'
 
 class Register extends Component {
     constructor(props) {
@@ -30,34 +31,22 @@ class Register extends Component {
 
         const { username, lastName, department, email, password, rePassword } = this.state
 
-        try {
-            const promise = await fetch('http://localhost:9999/api/user/register', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,
-                    lastName,
-                    department,
-                    email,
-                    password,
-                    rePassword,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-
-            const authToken = promise.headers.get('Authorization')
-
-            document.cookie = `x-auth-token=${authToken}`
-
-            const response = await promise.json()
-
-            if (response.username && authToken) {
+        await authenticate(
+            'http://localhost:9999/api/user/register',
+            {
+                username,
+                lastName,
+                department,
+                email,
+                password,
+                rePassword,
+            },
+            () => {
+                console.log('Yeeyyy')
                 this.props.history.push('/')
-            }
-        } catch (err) {
-            console.log(err)
-        }
+            },
+            (err) => console.log('Error: ', err)
+        )
     }
 
     render() {

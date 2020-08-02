@@ -3,6 +3,7 @@ import PageLayout from '../PageLayout'
 import Input from '../../components/common/Input/Input'
 import Button from '../../components/common/Button/Button'
 import { LoginContainer, InnerContainer, LoginForm } from './Login.styles'
+import authenticate from '../../services/authServices'
 
 class Login extends Component {
     constructor(props) {
@@ -28,28 +29,15 @@ class Login extends Component {
 
         // TODO validation
 
-        try {
-            const promise = await fetch('http://localhost:9999/api/user/login', {
-                method: 'POST',
-                body: JSON.stringify({ username, password }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-
-            // set cookie
-            const authToken = promise.headers.get('Authorization')
-
-            document.cookie = `x-auth-token=${authToken}`
-
-            const response = await promise.json()
-
-            if (response.username && authToken) {
+        await authenticate(
+            'http://localhost:9999/api/user/login',
+            { username, password },
+            () => {
+                console.log('Yeeyyy')
                 this.props.history.push('/')
-            }
-        } catch (err) {
-            console.log(err)
-        }
+            },
+            (err) => console.log('Error:', e)
+        )
     }
 
     render() {
