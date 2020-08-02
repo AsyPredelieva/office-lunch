@@ -25,6 +25,41 @@ class Register extends Component {
         this.setState(fieldValue)
     }
 
+    handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const { username, lastName, department, email, password, rePassword } = this.state
+
+        try {
+            const promise = await fetch('http://localhost:9999/api/user/register', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username,
+                    lastName,
+                    department,
+                    email,
+                    password,
+                    rePassword,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            const authToken = promise.headers.get('Authorization')
+
+            document.cookie = `x-auth-token=${authToken}`
+
+            const response = await promise.json()
+
+            if (response.username && authToken) {
+                this.props.history.push('/')
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     render() {
         const { username, lastName, department, email, password, rePassword } = this.state
 
@@ -33,7 +68,7 @@ class Register extends Component {
                 <RegisterContainer>
                     <InnerContainer className='container'>
                         <h2>Register</h2>
-                        <form className='grid-container'>
+                        <form className='grid-container' onSubmit={this.handleSubmit}>
                             <div className='grid-half'>
                                 <div className='form-row'>
                                     <Input
