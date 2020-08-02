@@ -3,6 +3,7 @@ import PageLayout from '../PageLayout'
 import Input from '../../components/common/Input/Input'
 import Button from '../../components/common/Button/Button'
 import { RegisterContainer, InnerContainer, GridFull } from './Register.styles'
+import authenticate from '../../services/authServices'
 
 class Register extends Component {
     constructor(props) {
@@ -25,6 +26,29 @@ class Register extends Component {
         this.setState(fieldValue)
     }
 
+    handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const { username, lastName, department, email, password, rePassword } = this.state
+
+        await authenticate(
+            'http://localhost:9999/api/user/register',
+            {
+                username,
+                lastName,
+                department,
+                email,
+                password,
+                rePassword,
+            },
+            () => {
+                console.log('Yeeyyy')
+                this.props.history.push('/')
+            },
+            (err) => console.log('Error: ', err)
+        )
+    }
+
     render() {
         const { username, lastName, department, email, password, rePassword } = this.state
 
@@ -33,7 +57,7 @@ class Register extends Component {
                 <RegisterContainer>
                     <InnerContainer className='container'>
                         <h2>Register</h2>
-                        <form className='grid-container'>
+                        <form className='grid-container' onSubmit={this.handleSubmit}>
                             <div className='grid-half'>
                                 <div className='form-row'>
                                     <Input
@@ -93,7 +117,7 @@ class Register extends Component {
                                 </div>
                             </div>
                             <GridFull className='grid-full'>
-                                <Button title='Submit' />
+                                <Button title='Submit' type='submit' />
                             </GridFull>
                         </form>
                     </InnerContainer>
