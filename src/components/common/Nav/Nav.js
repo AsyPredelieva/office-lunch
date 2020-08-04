@@ -21,7 +21,7 @@ class Nav extends Component {
     }
 
     render() {
-        const { isAuth } = this.context
+        const { user } = this.context
 
         return (
             <NavStyled>
@@ -47,7 +47,7 @@ class Nav extends Component {
                             </li>
                         </ul>
                     </li>
-                    {isAuth ? (
+                    {user && user.isAuth ? (
                         <>
                             <li className='sub-nav'>
                                 <Link to='/orders'>Orders</Link>

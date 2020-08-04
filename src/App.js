@@ -1,72 +1,63 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import UserContext from './Context'
 import getCookie from './utils/getCookie'
 
-class App extends Component {
-    constructor(props) {
-        super(props)
+const App = (props) => {
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
-        this.state = {
-            isAuth: null,
-            user: null,
-        }
-    }
-
-    logIn = (user) => {
-        this.setState({
+    const logIn = (user) => {
+        setUser({
+            ...user,
             isAuth: true,
-            user,
         })
     }
 
-    logOut = () => {
+    const logOut = () => {
         document.cookie = 'x-auth-token= ; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-        this.setState({
+        setUser({
             isAuth: false,
-            user: null,
         })
     }
 
-    componentDidMount() {
+    useEffect(() => {
         const token = getCookie('x-auth-token')
-        console.log(token)
 
         if (!token) {
-            this.logOut()
+            logOut()
+            setLoading(false)
             return
         }
 
         fetch('http://localhost:9999/api/user/verify', {
-            method: 'POST',
-            body: JSON.stringify({ token }),
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: token,
             },
         })
             .then((data) => data.json())
             .then((res) => {
                 res.status
-                    ? this.logIn({
+                    ? logIn({
                           username: res.user.username,
                           id: res.user._id,
                       })
-                    : this.logOut()
+                    : logOut()
+
+                setLoading(false)
             })
-    }
+    }, [])
 
-    render() {
-        const { isAuth, user } = this.state
+    // if (loading) {
+    //     return <div>Loading...</div>
+    // }
 
-        if (isAuth === null) {
-            return <div>Loading...</div>
-        }
-
-        return (
-            <UserContext.Provider value={{ isAuth, user, logIn: this.logIn, logOut: this.logOut }}>
-                {this.props.children}
-            </UserContext.Provider>
-        )
-    }
+    return (
+        <UserContext.Provider value={{ user, logIn, logOut }}>
+            {props.children}
+        </UserContext.Provider>
+    )
 }
 
 export default App

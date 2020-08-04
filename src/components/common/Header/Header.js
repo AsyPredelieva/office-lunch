@@ -8,13 +8,13 @@ class Header extends Component {
     static contextType = UserContext
 
     render() {
-        const { isAuth, user } = this.context
+        const { user } = this.context
 
         return (
             <HeaderStyled>
                 <Logo />
                 <NavContainer>
-                    {isAuth && <WelcomeBox>Welcome, {user.username}</WelcomeBox>}
+                    {user && user.isAuth && <WelcomeBox>Welcome, {user.username}</WelcomeBox>}
                     <Nav />
                 </NavContainer>
             </HeaderStyled>

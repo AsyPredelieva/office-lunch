@@ -11,7 +11,7 @@ class Home extends Component {
     static contextType = UserContext
 
     render() {
-        const { isAuth } = this.context
+        const { user } = this.context
         console.log(this.context)
         return (
             <PageLayout>
@@ -22,7 +22,7 @@ class Home extends Component {
                         <Teaser />
                     </TeaserList>
                 </div>
-                {isAuth && (
+                {user && user.isAuth && (
                     <>
                         <QuotesContainer>
                             <div className='container'>
