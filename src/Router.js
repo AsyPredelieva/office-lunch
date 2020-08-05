@@ -13,7 +13,7 @@ class Router extends Component {
     static contextType = UserContext
 
     render() {
-        const { isAuth } = this.context
+        const { user } = this.context
 
         return (
             <BrowserRouter>
@@ -22,7 +22,7 @@ class Router extends Component {
                     <Route path='/login' exact component={Login} />
                     <Route path='/register' exact component={Register} />
                     <Route path='/offers' exact component={OffersList} />
-                    {isAuth && (
+                    {user && user.isAuth && (
                         <>
                             <Route path='/offers/Kamenica' exact component={OfferDetails} />
                             <Route path='/orders' exact component={Orders} />

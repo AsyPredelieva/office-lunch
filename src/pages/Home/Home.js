@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
@@ -7,30 +7,27 @@ import Article from '../../components/Home/Article/Article'
 import UserContext from '../../Context'
 import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
 
-class Home extends Component {
-    static contextType = UserContext
+const Home = () => {
+    const context = useContext(UserContext)
 
-    render() {
-        const { isAuth } = this.context
-        console.log(this.context)
-        return (
-            <PageLayout>
-                <Hero />
-                <div className='container'>
-                    <h2>The best time of the day is comming</h2>
-                    <TeaserList className='grid-container'>
-                        <Teaser />
-                    </TeaserList>
-                </div>
-                {isAuth && (
-                    <>
-                        <QuotesContainer>
-                            <div className='container'>
-                                <Quotes />
-                            </div>
-                        </QuotesContainer>
-                        <InfoContainer>
-                            {/* <img
+    return (
+        <PageLayout>
+            <Hero />
+            <div className='container'>
+                <h2>The best time of the day is comming</h2>
+                <TeaserList className='grid-container'>
+                    <Teaser />
+                </TeaserList>
+            </div>
+            {context.user && context.user.isAuth && (
+                <>
+                    <QuotesContainer>
+                        <div className='container'>
+                            <Quotes />
+                        </div>
+                    </QuotesContainer>
+                    <InfoContainer>
+                        {/* <img
                                 v-parallax="0.2"
                                 className="parallax-item tomato-left"
                                 src="../assets/domat_1.png"
@@ -60,23 +57,22 @@ class Home extends Component {
                                 src="../assets/chuska_2.png"
                                 alt="peper"
                             /> */}
-                            <div className='container'>
-                                <h2>Healthy Eating</h2>
-                                {/* <div v-if="!articles">
+                        <div className='container'>
+                            <h2>Healthy Eating</h2>
+                            {/* <div v-if="!articles">
                                     <Loader />
                                 </div> */}
-                                <div>
-                                    <section className='grid-container'>
-                                        <Article />
-                                    </section>
-                                </div>
+                            <div>
+                                <section className='grid-container'>
+                                    <Article />
+                                </section>
                             </div>
-                        </InfoContainer>
-                    </>
-                )}
-            </PageLayout>
-        )
-    }
+                        </div>
+                    </InfoContainer>
+                </>
+            )}
+        </PageLayout>
+    )
 }
 
 export default Home

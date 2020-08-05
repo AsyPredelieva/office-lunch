@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import Logo from '../Logo/Logo'
 import Nav from '../Nav/Nav'
 import { HeaderStyled, NavContainer, WelcomeBox } from './Header.styles'
 import UserContext from '../../../Context'
 
-class Header extends Component {
-    static contextType = UserContext
+const Header = () => {
+    const context = useContext(UserContext)
 
-    render() {
-        const { isAuth, user } = this.context
-
-        return (
-            <HeaderStyled>
-                <Logo />
-                <NavContainer>
-                    {isAuth && <WelcomeBox>Welcome, {user.username}</WelcomeBox>}
-                    <Nav />
-                </NavContainer>
-            </HeaderStyled>
-        )
-    }
+    return (
+        <HeaderStyled>
+            <Logo />
+            <NavContainer>
+                {context.user && context.user.isAuth && (
+                    <WelcomeBox>Welcome, {context.user.username}</WelcomeBox>
+                )}
+                <Nav />
+            </NavContainer>
+        </HeaderStyled>
+    )
 }
 
 export default Header
