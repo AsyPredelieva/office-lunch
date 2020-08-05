@@ -49,9 +49,10 @@ const App = (props) => {
             })
     }, [])
 
-    // if (loading) {
-    //     return <div>Loading...</div>
-    // }
+    // TODO Loading
+    if (loading) {
+        return <div>Loading...</div>
+    }
 
     return (
         <UserContext.Provider value={{ user, logIn, logOut }}>
