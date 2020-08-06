@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
@@ -8,7 +8,19 @@ import UserContext from '../../Context'
 import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
 
 const Home = () => {
+    const [articles, setArticles] = useState([])
     const context = useContext(UserContext)
+
+    const getArticles = async () => {
+        const response = await fetch('http://localhost:9999/api/articles')
+        const data = await response.json()
+
+        setArticles(data)
+    }
+
+    useEffect(() => {
+        getArticles()
+    }, [])
 
     return (
         <PageLayout>
@@ -59,12 +71,19 @@ const Home = () => {
                             /> */}
                         <div className='container'>
                             <h2>Healthy Eating</h2>
-                            {/* <div v-if="!articles">
-                                    <Loader />
-                                </div> */}
                             <div>
                                 <section className='grid-container'>
-                                    <Article />
+                                    {articles ? (
+                                        articles.map((article, index) => (
+                                            <Article
+                                                key={article._id}
+                                                title={article.title}
+                                                description={article.description}
+                                            />
+                                        ))
+                                    ) : (
+                                        <div>Loading...</div>
+                                    )}
                                 </section>
                             </div>
                         </div>

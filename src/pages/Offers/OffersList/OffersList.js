@@ -24,20 +24,23 @@ const Offers = () => {
         getOffers()
     }, [])
 
-    if (!offers) {
-        return
-    }
-
     return (
         <PageLayout>
             <OffersContainer className='container'>
                 <h2>Get the best</h2>
-                {!offers && <div>Loader...</div>}
                 <div>
                     <OffersList>
-                        {offers.map((offer) => (
-                            <OfferItem key={offer.id} name={offer.name} imgBckgr={offer.imgUrl} />
-                        ))}
+                        {offers ? (
+                            offers.map((offer) => (
+                                <OfferItem
+                                    key={offer.id}
+                                    name={offer.name}
+                                    imgBckgr={offer.imgUrl}
+                                />
+                            ))
+                        ) : (
+                            <div>Loading...</div>
+                        )}
                     </OffersList>
                 </div>
             </OffersContainer>
