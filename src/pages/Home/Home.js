@@ -9,6 +9,7 @@ import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
 
 const Home = () => {
     const [articles, setArticles] = useState([])
+    const [quotes, setQuotes] = useState([])
     const context = useContext(UserContext)
 
     const getArticles = async () => {
@@ -18,8 +19,16 @@ const Home = () => {
         setArticles(data)
     }
 
+    const getQuotes = async () => {
+        const response = await fetch('http://localhost:9999/api/quotes')
+        const data = await response.json()
+
+        setQuotes(data)
+    }
+
     useEffect(() => {
         getArticles()
+        getQuotes()
     }, [])
 
     return (
@@ -35,7 +44,17 @@ const Home = () => {
                 <>
                     <QuotesContainer>
                         <div className='container'>
-                            <Quotes />
+                            {quotes ? (
+                                quotes.map((quote) => (
+                                    <Quotes
+                                        key={quote.id}
+                                        quote={quote.quote}
+                                        author={quote.author}
+                                    />
+                                ))
+                            ) : (
+                                <div>Loading...</div>
+                            )}
                         </div>
                     </QuotesContainer>
                     <InfoContainer>
@@ -74,9 +93,9 @@ const Home = () => {
                             <div>
                                 <section className='grid-container'>
                                     {articles ? (
-                                        articles.map((article, index) => (
+                                        articles.map((article) => (
                                             <Article
-                                                key={article._id}
+                                                key={article.id}
                                                 title={article.title}
                                                 description={article.description}
                                             />

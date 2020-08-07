@@ -1,14 +1,12 @@
 import React from 'react'
 import { QuotesStyled } from './Quotes.styles'
 
-const Quotes = () => {
+const Quotes = ({ quote, author }) => {
     return (
-        <>
-            <QuotesStyled>
-                "Lunch is the most important work during your work day"
-                <small>- Me</small>
-            </QuotesStyled>
-        </>
+        <QuotesStyled>
+            {quote}
+            <small>- {author}</small>
+        </QuotesStyled>
     )
 }
 
