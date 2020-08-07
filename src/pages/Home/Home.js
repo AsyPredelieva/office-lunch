@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import ReactDOM from 'react-dom'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
@@ -6,6 +7,8 @@ import Quotes from '../../components/Home/Quotes/Quotes'
 import Article from '../../components/Home/Article/Article'
 import UserContext from '../../Context'
 import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import { Carousel } from 'react-responsive-carousel'
 
 const Home = () => {
     const [articles, setArticles] = useState([])
@@ -44,17 +47,19 @@ const Home = () => {
                 <>
                     <QuotesContainer>
                         <div className='container'>
-                            {quotes ? (
-                                quotes.map((quote) => (
-                                    <Quotes
-                                        key={quote.id}
-                                        quote={quote.quote}
-                                        author={quote.author}
-                                    />
-                                ))
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+                            <Carousel showArrows={false} showThumbs={false} showStatus={false}>
+                                {quotes ? (
+                                    quotes.map((quote) => (
+                                        <Quotes
+                                            key={quote.id}
+                                            quote={quote.quote}
+                                            author={quote.author}
+                                        />
+                                    ))
+                                ) : (
+                                    <div>Loading...</div>
+                                )}
+                            </Carousel>
                         </div>
                     </QuotesContainer>
                     <InfoContainer>
