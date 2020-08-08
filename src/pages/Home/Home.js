@@ -18,8 +18,9 @@ const Home = () => {
     const getArticles = async () => {
         const response = await fetch('http://localhost:9999/api/articles')
         const data = await response.json()
+        const sortedArticles = data.sort(() => 0.5 - Math.random()).slice(0, 2)
 
-        setArticles(data)
+        setArticles(sortedArticles)
     }
 
     const getQuotes = async () => {
