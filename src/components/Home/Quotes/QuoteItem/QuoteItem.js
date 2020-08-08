@@ -1,12 +1,12 @@
 import React from 'react'
-import { QuotesStyled } from './Quotes.styles'
+import { QuoteStyled } from './QuoteItem.styles'
 
 const Quotes = ({ quote, author }) => {
     return (
-        <QuotesStyled>
+        <QuoteStyled>
             {quote}
             <small>- {author}</small>
-        </QuotesStyled>
+        </QuoteStyled>
     )
 }
 

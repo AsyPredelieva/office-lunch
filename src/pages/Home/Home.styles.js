@@ -15,26 +15,6 @@ export const QuotesContainer = styled.div`
     font-size: 32px;
     line-height: 1.4;
     font-style: italic;
-
-    .carousel {
-        .slide {
-            background: none;
-        }
-
-        .control-dots {
-            bottom: -20px;
-
-            .dot {
-                background: rgba(33, 147, 208, 0.3);
-
-                &:hover,
-                &:focus,
-                &.selected {
-                    outline: none;
-                }
-            }
-        }
-    }
 `
 
 export const InfoContainer = styled.div`

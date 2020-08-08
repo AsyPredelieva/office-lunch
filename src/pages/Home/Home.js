@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
-import Quotes from '../../components/Home/Quotes/Quotes'
+import QuotesList from '../../components/Home/Quotes/QuotesList/QuotesList'
 import Article from '../../components/Home/Article/Article'
 import UserContext from '../../Context'
 import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
 
 const Home = () => {
     const [articles, setArticles] = useState([])
-    const [quotes, setQuotes] = useState([])
     const context = useContext(UserContext)
 
     const getArticles = async () => {
@@ -23,16 +20,8 @@ const Home = () => {
         setArticles(sortedArticles)
     }
 
-    const getQuotes = async () => {
-        const response = await fetch('http://localhost:9999/api/quotes')
-        const data = await response.json()
-
-        setQuotes(data)
-    }
-
     useEffect(() => {
         getArticles()
-        getQuotes()
     }, [])
 
     return (
@@ -47,21 +36,7 @@ const Home = () => {
             {context.user && context.user.isAuth && (
                 <>
                     <QuotesContainer>
-                        <div className='container'>
-                            <Carousel showArrows={false} showThumbs={false} showStatus={false}>
-                                {quotes ? (
-                                    quotes.map((quote) => (
-                                        <Quotes
-                                            key={quote.id}
-                                            quote={quote.quote}
-                                            author={quote.author}
-                                        />
-                                    ))
-                                ) : (
-                                    <div>Loading...</div>
-                                )}
-                            </Carousel>
-                        </div>
+                        <QuotesList />
                     </QuotesContainer>
                     <InfoContainer>
                         {/* <img
