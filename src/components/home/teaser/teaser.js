@@ -1,9 +1,9 @@
 import React from 'react'
-import { Li } from './Teaser.styles'
+import { Ul, Li } from './Teaser.styles'
 
 const Teaser = () => {
     return (
-        <>
+        <Ul className='grid-container'>
             <Li className='quick grid-aside'>
                 <strong>Quickly and easily</strong>
                 find out the actual menus.
@@ -16,7 +16,7 @@ const Teaser = () => {
                 <strong>Gently and precisely</strong>
                 order your favourite meal.
             </Li>
-        </>
+        </Ul>
     )
 }
 

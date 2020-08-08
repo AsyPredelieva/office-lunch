@@ -1,0 +1,19 @@
+.carousel {
+    .slide {
+        background: none;
+    }
+
+    .control-dots {
+        bottom: -20px;
+
+        .dot {
+            background: rgba(33, 147, 208, 0.3);
+
+            &:hover,
+            &:focus,
+            &.selected {
+                outline: none;
+            }
+        }
+    }
+}

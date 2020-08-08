@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const QuotesStyled = styled.p`
+export const QuoteStyled = styled.p`
     width: 100%;
-    padding: 0 0 40px;
+    padding: 0 0 55px;
     margin-bottom: 0;
     position: relative;
 
@@ -11,6 +11,6 @@ export const QuotesStyled = styled.p`
         font-style: normal;
         position: absolute;
         right: 0px;
-        bottom: 0;
+        bottom: 20px;
     }
 `

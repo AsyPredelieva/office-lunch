@@ -1,11 +1,15 @@
 import React, { useContext } from 'react'
+import ReactDOM from 'react-dom'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
-import Quotes from '../../components/Home/Quotes/Quotes'
-import Article from '../../components/Home/Article/Article'
+import Quotes from '../../components/Home/Quotes/QuotesList/QuotesList'
+import Articles from '../../components/Home/Articles/ArticlesList/ArticlesList'
 import UserContext from '../../Context'
-import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
+import { QuotesContainer, InfoContainer } from './Home.styles'
+import { ParallaxProvider } from 'react-scroll-parallax'
+import { Parallax } from 'react-scroll-parallax'
+import tomato from '../../assets/domat_1.png'
 
 const Home = () => {
     const context = useContext(UserContext)
@@ -15,18 +19,21 @@ const Home = () => {
             <Hero />
             <div className='container'>
                 <h2>The best time of the day is comming</h2>
-                <TeaserList className='grid-container'>
-                    <Teaser />
-                </TeaserList>
+                <Teaser />
             </div>
             {context.user && context.user.isAuth && (
                 <>
                     <QuotesContainer>
-                        <div className='container'>
-                            <Quotes />
-                        </div>
+                        <Quotes />
                     </QuotesContainer>
+                    {/* <ParallaxProvider> */}
                     <InfoContainer>
+                        {/* <Parallax
+                                offsetYMin={-50}
+                                offsetYMax={50}
+                                className='parallax-item tomato-left'>
+                                <img src={tomato} />
+                            </Parallax> */}
                         {/* <img
                                 v-parallax="0.2"
                                 className="parallax-item tomato-left"
@@ -59,16 +66,10 @@ const Home = () => {
                             /> */}
                         <div className='container'>
                             <h2>Healthy Eating</h2>
-                            {/* <div v-if="!articles">
-                                    <Loader />
-                                </div> */}
-                            <div>
-                                <section className='grid-container'>
-                                    <Article />
-                                </section>
-                            </div>
+                            <Articles />
                         </div>
                     </InfoContainer>
+                    {/* </ParallaxProvider> */}
                 </>
             )}
         </PageLayout>
