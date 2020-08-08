@@ -1,61 +1,101 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import { useHistory } from 'react-router-dom'
+import Menu from '../../../components/Offers/Menu/Menu'
+import { OrderDetail } from '../../../components/Offers/Menu/Menu.styles'
 import CurrentOrder from '../../../components/Orders/CurrentOrder/CurrentOrder'
 import PageLayout from '../../PageLayout'
 import {
     OfferDetailsStyled,
     OfferMenuList,
     CurrentOrderStyled,
-    OrderDetail,
+    CurrentOrderList,
     TotalPrice,
 } from './OfferDetails.styles'
+import OfferItem from '../../../components/Offers/OfferItem/OfferItem'
 
 const OfferDetails = () => {
+    const [offer, setOffer] = useState([])
+    const [count, setCount] = useState(0)
+    const [orderItem, setOrderItem] = useState({})
+    const [updatedOrder, setUpdatedOrder] = useState([])
+    const [totalSum, setTotalSum] = useState(0)
+    const [isAdded, setIsAdded] = useState(true)
+    const retailerName = useParams()
+    const history = useHistory()
+
+    const getOffer = async () => {
+        const response = await fetch('http://localhost:9999/api/offers')
+
+        if (!response.ok) {
+            history.push('/')
+        } else {
+            const data = await response.json()
+            const currOffer = await data.filter((offer) => offer.name === retailerName.id)
+
+            setOffer(currOffer[0])
+        }
+    }
+
+    useEffect(() => {
+        getOffer()
+    }, [])
+
+    const addOrderItem = (name, count, price) => {
+        const currOrder = { name, count, price }
+
+        setOrderItem(currOrder)
+        setUpdatedOrder((orderItems) => [...orderItems, currOrder])
+        // setCount('')
+    }
+
     return (
         <PageLayout>
             <OfferDetailsStyled>
                 <div className='container'>
-                    {/* if="!currentOffer"
-                <div>
-                    <Loader />
-                </div> */}
-                    <div>
-                        <form>
-                            <h2>Today's menu in Kamenica</h2>
-                            <OfferMenuList>
-                                <li>
-                                    <h3>Starters</h3>
-                                    <ul>
-                                        <li>
-                                            <span className='name'>Soup</span>
-                                            <OrderDetail>
-                                                <div className='form-field'>
-                                                    <input type='text' placeholder='0' />
-                                                </div>
-                                                <span className='price'>2.50 lv</span>
-                                                <button type='button' className='primary-button'>
-                                                    Add
-                                                </button>
-                                            </OrderDetail>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </OfferMenuList>
-                            {/* if="isAdded" */}
-                            <>
-                                <CurrentOrderStyled>
-                                    <h3>I'll take for lunch:</h3>
-                                    <ul>
-                                        <CurrentOrder />
-                                    </ul>
-                                    <TotalPrice>
-                                        <strong>Total sum:</strong>
-                                        <strong>4.50 lv</strong>
-                                    </TotalPrice>
-                                    <button className='cta-btn'>Order</button>
-                                </CurrentOrderStyled>
-                            </>
-                        </form>
-                    </div>
+                    {offer ? (
+                        <div>
+                            <form>
+                                <h2>Today's menu in {offer.name}</h2>
+                                <OfferMenuList>
+                                    {offer?.menuCategories?.map((category, index) => (
+                                        <Menu
+                                            category={category}
+                                            count={count}
+                                            setCount={setCount}
+                                            addOrderItem={addOrderItem}
+                                            key={index}
+                                        />
+                                    ))}
+                                </OfferMenuList>
+                                {updatedOrder.length > 0 && (
+                                    <>
+                                        <CurrentOrderStyled>
+                                            <h3>I'll take for lunch:</h3>
+                                            <CurrentOrderList>
+                                                {updatedOrder?.map((item, index) => (
+                                                    <CurrentOrder
+                                                        key={index}
+                                                        name={item.name}
+                                                        count={item.count}
+                                                        price={item.price}
+                                                        // removeCurrItem={removeCurrItem}
+                                                    />
+                                                ))}
+                                            </CurrentOrderList>
+                                            <TotalPrice>
+                                                <strong>Total sum:</strong>
+                                                <strong>{totalSum} lv</strong>
+                                            </TotalPrice>
+                                            <button className='cta-btn'>Order</button>
+                                        </CurrentOrderStyled>
+                                    </>
+                                )}
+                            </form>
+                        </div>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
                 </div>
             </OfferDetailsStyled>
         </PageLayout>
