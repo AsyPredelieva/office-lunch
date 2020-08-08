@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
@@ -7,9 +7,9 @@ import Quotes from '../../components/Home/Quotes/QuotesList/QuotesList'
 import Articles from '../../components/Home/Articles/ArticlesList/ArticlesList'
 import UserContext from '../../Context'
 import { QuotesContainer, InfoContainer } from './Home.styles'
-import { ParallaxProvider } from 'react-scroll-parallax'
-import { Parallax } from 'react-scroll-parallax'
-import tomato from '../../assets/domat_1.png'
+// import { ParallaxProvider } from 'react-scroll-parallax'
+// import { Parallax } from 'react-scroll-parallax'
+// import tomato from '../../assets/domat_1.png'
 
 const Home = () => {
     const context = useContext(UserContext)

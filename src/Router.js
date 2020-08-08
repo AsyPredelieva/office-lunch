@@ -24,7 +24,7 @@ class Router extends Component {
                     <Route path='/offers' exact component={OffersList} />
                     {user && user.isAuth && (
                         <>
-                            <Route path='/offers/Kamenica' exact component={OfferDetails} />
+                            <Route path='/offers/:id' exact component={OfferDetails} />
                             <Route path='/orders' exact component={Orders} />
                         </>
                     )}

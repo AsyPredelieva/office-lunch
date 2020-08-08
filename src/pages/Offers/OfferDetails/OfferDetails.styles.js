@@ -28,30 +28,25 @@ export const OfferMenuList = styled.ul`
     }
 `
 
-export const OrderDetail = styled.div`
-    display: flex;
-    align-items: center;
-
-    .form-field {
-        max-width: 50px;
-        display: inline-block;
-        padding: 2px 5px;
-
-        input {
-            padding: 0;
-        }
-    }
-
-    .price {
-        margin: 0 40px;
-        flex-grow: 1;
-        flex-basis: 0;
-    }
-`
-
 export const CurrentOrderStyled = styled.div`
     margin-top: 60px;
     text-align: center;
+`
+
+export const CurrentOrderList = styled.ul`
+    width: 570px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+
+    & > li {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 17px;
+    }
 `
 
 export const TotalPrice = styled.div`

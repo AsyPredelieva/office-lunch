@@ -21,11 +21,11 @@ export const InfoContainer = styled.div`
     background-repeat: no-repeat;
     background-size: 75%;
 
-    .parallax-item {
+    /*.parallax-item {
         position: absolute;
         z-index: -1;
 
-/*         &.tomato-left {
+         &.tomato-left {
             top: 27%;
             left: 17%;
         }

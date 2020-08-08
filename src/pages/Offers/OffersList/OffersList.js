@@ -15,7 +15,7 @@ const Offers = () => {
             history.push('/')
         } else {
             const data = await response.json()
-            console.log(data)
+
             setOffers(data)
         }
     }
