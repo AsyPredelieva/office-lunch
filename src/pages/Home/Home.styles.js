@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import quotesBckgr from '../../assets/quotes-bckgr.jpg'
 import infoBckgr from '../../assets/info-bckgr.png'
 
-export const TeaserList = styled.ul`
-    margin-bottom: 60px;
-`
-
 export const QuotesContainer = styled.div`
     width: 100%;
     background: url(${quotesBckgr}) center center no-repeat;
@@ -25,11 +21,11 @@ export const InfoContainer = styled.div`
     background-repeat: no-repeat;
     background-size: 75%;
 
-    /* .parallax-item {
+    .parallax-item {
         position: absolute;
         z-index: -1;
 
-        &.tomato-left {
+/*         &.tomato-left {
             top: 27%;
             left: 17%;
         }

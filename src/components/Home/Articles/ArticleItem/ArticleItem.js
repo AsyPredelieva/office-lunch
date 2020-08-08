@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArticleStyled } from './Article.styles'
+import { ArticleStyled } from './ArticleItem.styles'
 
 const Article = ({ title, description }) => {
     return (

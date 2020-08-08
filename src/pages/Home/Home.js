@@ -1,44 +1,39 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
 import PageLayout from '../PageLayout'
 import Hero from '../../components/Home/Hero/Hero'
 import Teaser from '../../components/Home/Teaser/Teaser'
-import QuotesList from '../../components/Home/Quotes/QuotesList/QuotesList'
-import Article from '../../components/Home/Article/Article'
+import Quotes from '../../components/Home/Quotes/QuotesList/QuotesList'
+import Articles from '../../components/Home/Articles/ArticlesList/ArticlesList'
 import UserContext from '../../Context'
-import { TeaserList, QuotesContainer, InfoContainer } from './Home.styles'
+import { QuotesContainer, InfoContainer } from './Home.styles'
+import { ParallaxProvider } from 'react-scroll-parallax'
+import { Parallax } from 'react-scroll-parallax'
+import tomato from '../../assets/domat_1.png'
 
 const Home = () => {
-    const [articles, setArticles] = useState([])
     const context = useContext(UserContext)
-
-    const getArticles = async () => {
-        const response = await fetch('http://localhost:9999/api/articles')
-        const data = await response.json()
-        const sortedArticles = data.sort(() => 0.5 - Math.random()).slice(0, 2)
-
-        setArticles(sortedArticles)
-    }
-
-    useEffect(() => {
-        getArticles()
-    }, [])
 
     return (
         <PageLayout>
             <Hero />
             <div className='container'>
                 <h2>The best time of the day is comming</h2>
-                <TeaserList className='grid-container'>
-                    <Teaser />
-                </TeaserList>
+                <Teaser />
             </div>
             {context.user && context.user.isAuth && (
                 <>
                     <QuotesContainer>
-                        <QuotesList />
+                        <Quotes />
                     </QuotesContainer>
+                    {/* <ParallaxProvider> */}
                     <InfoContainer>
+                        {/* <Parallax
+                                offsetYMin={-50}
+                                offsetYMax={50}
+                                className='parallax-item tomato-left'>
+                                <img src={tomato} />
+                            </Parallax> */}
                         {/* <img
                                 v-parallax="0.2"
                                 className="parallax-item tomato-left"
@@ -71,23 +66,10 @@ const Home = () => {
                             /> */}
                         <div className='container'>
                             <h2>Healthy Eating</h2>
-                            <div>
-                                <section className='grid-container'>
-                                    {articles ? (
-                                        articles.map((article) => (
-                                            <Article
-                                                key={article.id}
-                                                title={article.title}
-                                                description={article.description}
-                                            />
-                                        ))
-                                    ) : (
-                                        <div>Loading...</div>
-                                    )}
-                                </section>
-                            </div>
+                            <Articles />
                         </div>
                     </InfoContainer>
+                    {/* </ParallaxProvider> */}
                 </>
             )}
         </PageLayout>

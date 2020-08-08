@@ -3,6 +3,10 @@ import quick from '../../../assets/icon-quick-easy.png'
 import fast from '../../../assets/icon-fast.png'
 import gently from '../../../assets/icon-gentle.png'
 
+export const Ul = styled.ul`
+    margin-bottom: 60px;
+`
+
 export const Li = styled.li`
     border: 1px solid rgba(33, 147, 208, 0.3);
     padding: 120px 20px 20px;
