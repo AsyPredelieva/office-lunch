@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import OrderContext from '../../../Context'
 import { OrderDetail } from './Menu.styles'
 
-const Menu = ({ category, count, setCount, addOrderItem }) => {
+const Menu = ({ category }) => {
+    const context = useContext(OrderContext)
+
     console.log('Category --->', category)
     return (
         <li category={category}>
@@ -15,15 +18,17 @@ const Menu = ({ category, count, setCount, addOrderItem }) => {
                                 <input
                                     type='text'
                                     placeholder='0'
-                                    value={count}
-                                    onChange={(e) => setCount(e.target.value)}
+                                    value={context.count}
+                                    onChange={(e) => context.setCount(e.target.value)}
                                 />
                             </div>
                             <span className='price'>{item.price} lv</span>
                             <button
                                 type='button'
                                 className='primary-button'
-                                onClick={() => addOrderItem(item.name, count, item.price)}>
+                                onClick={() =>
+                                    context.addOrderItem(item.name, context.count, item.price)
+                                }>
                                 Add
                             </button>
                         </OrderDetail>
