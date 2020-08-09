@@ -63,22 +63,24 @@ const OfferDetails = () => {
 
     const addOrderItem = (name, count, price) => {
         const sum = Number(count) * Number(price)
-        console.log(('Sum ', sum))
 
         setPrice(sum)
 
         const currOrder = { name, count, sum }
-        console.log(('currOrder ', currOrder))
 
         setOrderItem(currOrder)
         setUpdatedOrder((orderItems) => [...orderItems, currOrder])
     }
 
+    useEffect(() => {
+        const currSum = updatedOrder.reduce((acc, curr) => acc + curr.sum, 0)
+
+        setTotalSum(currSum)
+    }, [updatedOrder])
+
     const removeOrderItem = (name, count, price) => {
         console.log('remove order item', name, count, price)
     }
-
-    console.log('Current Offer =======>', updatedOrder)
 
     return (
         <PageLayout>
