@@ -6,4 +6,12 @@ const UserContext = React.createContext({
     logOut: () => {},
 })
 
+export const OrderContext = React.createContext({
+    name: '',
+    count: '',
+    price: '',
+    addOrderItem: () => {},
+    removeOrderItem: () => {},
+})
+
 export default UserContext
