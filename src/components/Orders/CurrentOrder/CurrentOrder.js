@@ -22,6 +22,7 @@ const CurrentOrder = ({ updatedOrder, totalSum, handleOrder }) => {
             method: 'POST',
             body: JSON.stringify({
                 order: updatedOrder,
+                totalSum,
             }),
             headers: {
                 'Content-Type': 'application/json',
