@@ -17,7 +17,9 @@ const Menu = ({ category, handleOrder }) => {
     }
 
     // onClick Add order item
-    const addOrderItem = (name, count, price) => {
+    const addOrderItem = (e, name, count, price) => {
+        e.preventDefault()
+
         const sum = Number(count) * Number(price)
         const currOrder = { name, count, sum }
 
@@ -53,10 +55,9 @@ const Menu = ({ category, handleOrder }) => {
                             </div>
                             <span className='price'>{item.price} lv</span>
                             <button
-                                type='button'
                                 className='primary-button'
-                                onClick={() =>
-                                    addOrderItem(item.name, currCount.itemCount, item.price)
+                                onClick={(e) =>
+                                    addOrderItem(e, item.name, currCount.itemCount, item.price)
                                 }>
                                 Add
                             </button>
