@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CurrentOrderItem from '../CurrentOrderItem/CurrentOrderItem'
+import getCookie from '../../../utils/getCookie'
 import { CurrentOrderStyled, CurrentOrderList, TotalPrice } from './CurrentOrder.styles'
 
 const CurrentOrder = ({ updatedOrder, totalSum, handleOrder }) => {
+    const [post, setPost] = useState(updatedOrder)
+    const [currentOrder, setCurrentdOrder] = useState([])
+
     const removeCurrItem = (index) => {
         const currItem = updatedOrder[index]
         const currOrder = updatedOrder.filter((el) => el.name !== currItem.name)
 
         handleOrder(currOrder)
+    }
+
+    const handleSubmit = async (e) => {
+        // e.preventDefault()
+        // await fetch('http://localhost:9999/api/orders', {
+        //     method: 'POST',
+        //     body: JSON.stringify({ order: currentOrder }),
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Authorization: getCookie('x-auth-token'),
+        //     },
+        // })
+        // setPost([])
+        // setCurrentdOrder(() => [...updatedOrder])
     }
 
     return (
@@ -29,7 +47,9 @@ const CurrentOrder = ({ updatedOrder, totalSum, handleOrder }) => {
                 <strong>Total sum:</strong>
                 <strong>{totalSum} lv</strong>
             </TotalPrice>
-            <button className='cta-btn'>Order</button>
+            <button type='submit' className='cta-btn' onClick={(e) => handleSubmit(e)}>
+                Order
+            </button>
         </CurrentOrderStyled>
     )
 }
