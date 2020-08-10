@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { useHistory } from 'react-router-dom'
 import { OrderContext } from '../../../Context'
-// import Menu from '../../../components/Offers/Menu/Menu'
+import Menu from '../../../components/Offers/Menu/Menu'
 import CurrentOrder from '../../../components/Orders/CurrentOrder/CurrentOrder'
 import PageLayout from '../../PageLayout'
 import {
@@ -16,13 +16,11 @@ import { OrderDetail } from '../../../components/Offers/Menu/Menu.styles'
 
 const OfferDetails = () => {
     const [offer, setOffer] = useState([])
+    const [updatedOrder, setUpdatedOrder] = useState([])
 
     const [name, setName] = useState('')
     const [count, setCount] = useState('')
     const [price, setPrice] = useState('')
-
-    const [orderItem, setOrderItem] = useState({})
-    const [updatedOrder, setUpdatedOrder] = useState([])
 
     const [totalSum, setTotalSum] = useState(0)
     const [isAdded, setIsAdded] = useState(true)
@@ -30,6 +28,7 @@ const OfferDetails = () => {
     const retailerName = useParams()
     const history = useHistory()
 
+    // get offer details
     const getOffer = async () => {
         const response = await fetch('http://localhost:9999/api/offers')
 
@@ -47,31 +46,7 @@ const OfferDetails = () => {
         getOffer()
     }, [])
 
-    const [itemCount, setItemCount] = useState({})
-    const [updatedCount, setUpdatedCount] = useState([])
-
-    const handleChange = (e, index) => {
-        const itemCount = e.target.value
-        const currOrder = {
-            itemId: index,
-            itemCount,
-        }
-
-        setItemCount(currOrder)
-        setUpdatedCount((updatedCountArr) => [...updatedCountArr, currOrder])
-    }
-
-    const addOrderItem = (name, count, price) => {
-        const sum = Number(count) * Number(price)
-
-        setPrice(sum)
-
-        const currOrder = { name, count, sum }
-
-        setOrderItem(currOrder)
-        setUpdatedOrder((orderItems) => [...orderItems, currOrder])
-    }
-
+    // calc order Total sum
     useEffect(() => {
         const currSum = updatedOrder.reduce((acc, curr) => acc + curr.sum, 0)
 
@@ -86,54 +61,20 @@ const OfferDetails = () => {
         <PageLayout>
             <OfferDetailsStyled>
                 <div className='container'>
-                    <OrderContext.Provider
-                        value={{ name, count, price, addOrderItem, removeOrderItem }}>
+                    <OrderContext.Provider value={{ name, count, price, removeOrderItem }}>
                         {offer ? (
                             <div>
                                 <form>
                                     <h2>Today's menu in {offer.name}</h2>
                                     <OfferMenuList>
                                         {offer?.menuCategories?.map((category, index) => (
-                                            // <Menu key={index} category={category} />
-                                            <li category={category} key={index}>
-                                                <h3>{category.name}</h3>
-                                                <ul>
-                                                    {category?.menuItems?.map((item, itemIndex) => (
-                                                        <li key={itemIndex}>
-                                                            <span className='name'>
-                                                                {item.name}
-                                                            </span>
-                                                            <OrderDetail>
-                                                                <div className='form-field'>
-                                                                    <input
-                                                                        type='text'
-                                                                        placeholder='0'
-                                                                        value={itemCount.itemIndex}
-                                                                        onChange={(e) =>
-                                                                            handleChange(e, item.id)
-                                                                        }
-                                                                    />
-                                                                </div>
-                                                                <span className='price'>
-                                                                    {item.price} lv
-                                                                </span>
-                                                                <button
-                                                                    type='button'
-                                                                    className='primary-button'
-                                                                    onClick={() =>
-                                                                        addOrderItem(
-                                                                            item.name,
-                                                                            itemCount.itemCount,
-                                                                            item.price
-                                                                        )
-                                                                    }>
-                                                                    Add
-                                                                </button>
-                                                            </OrderDetail>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </li>
+                                            <Menu
+                                                key={index}
+                                                category={category}
+                                                handleUpdatedOrder={(currOrderItem) =>
+                                                    setUpdatedOrder(currOrderItem)
+                                                }
+                                            />
                                         ))}
                                     </OfferMenuList>
                                     {updatedOrder.length > 0 && (
