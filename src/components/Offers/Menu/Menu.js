@@ -2,10 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import OrderContext from '../../../Context'
 import { OrderDetail } from './Menu.styles'
 
-const Menu = ({ category, handleUpdatedOrder }) => {
-    const context = useContext(OrderContext)
-    const [price, setPrice] = useState('')
-
+const Menu = ({ category, handleOrder }) => {
+    // get input value - order item count
     const [itemCount, setItemCount] = useState({})
     const [updatedCount, setUpdatedCount] = useState([])
 
@@ -20,8 +18,11 @@ const Menu = ({ category, handleUpdatedOrder }) => {
         setUpdatedCount((updatedCountArr) => [...updatedCountArr, currOrder])
     }
 
+    // onClick Add order item
+    const [price, setPrice] = useState('')
     const [orderItem, setOrderItem] = useState({})
     const [updatedOrder, setUpdatedOrder] = useState([])
+    const [isAdded, setIsAdded] = useState(true)
 
     const addOrderItem = (name, count, price) => {
         const sum = Number(count) * Number(price)
@@ -31,8 +32,8 @@ const Menu = ({ category, handleUpdatedOrder }) => {
         const currOrder = { name, count, sum }
 
         setOrderItem(currOrder)
-        setUpdatedOrder((orderItems) => [...orderItems, currOrder])
-        handleUpdatedOrder((orderItems) => [...orderItems, currOrder])
+        setUpdatedOrder((prevOrder) => [...prevOrder, currOrder])
+        handleOrder((prevOrder) => [...prevOrder, currOrder])
     }
 
     return (

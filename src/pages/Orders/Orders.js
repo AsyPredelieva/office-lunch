@@ -1,6 +1,6 @@
 import React from 'react'
 import PageLayout from '../PageLayout'
-import CurrentOrder from '../../components/Orders/CurrentOrder/CurrentOrder'
+import CurrentOrderItem from '../../components/Orders/CurrentOrderItem/CurrentOrderItem'
 import { OrdersContainer, CurrentOrderStyled } from './Orders.styles'
 
 const Orders = () => {
@@ -22,7 +22,7 @@ const Orders = () => {
                                         <span>12.08.2020</span>
                                     </h3>
                                     <ul>
-                                        <CurrentOrder />
+                                        <CurrentOrderItem />
                                     </ul>
                                     <div className='total-price'>
                                         <strong>Total sum:</strong>
