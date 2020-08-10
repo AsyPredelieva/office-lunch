@@ -1,33 +1,32 @@
 import styled from 'styled-components'
 
-export const OrderDetail = styled.div`
-    display: flex;
+export const CurrentOrderStyled = styled.div`
+    margin-top: 60px;
+    text-align: center;
+`
 
-    .price {
-        width: 80px;
-        margin: 0 0 0 40px;
-        font-weight: 500;
-        text-align: right;
+export const CurrentOrderList = styled.ul`
+    width: 570px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
 
-        &.large {
-            margin: 0 100px 0 40px;
-        }
-    }
-
-    .remove-icon {
-        width: 18px;
-        height: 18px;
-        display: inline-block;
-        cursor: pointer;
+    & > li {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 17px;
     }
 `
 
-// @media screen and(max-width: 640px) {
-//     .price {
-//         width: 60px;
+export const TotalPrice = styled.div`
+    font-size: 20px;
+    padding-bottom: 10px;
+    justify-content: flex-end;
 
-//         .large {
-//             margin: 0 20px 0 17px;
-//         }
-//     }
-// }
+    strong:last-child {
+        margin-left: 10px;
+    }
+`
