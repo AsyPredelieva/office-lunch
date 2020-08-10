@@ -1,39 +1,40 @@
-import React, { useContext, useState, useEffect } from 'react'
-import OrderContext from '../../../Context'
+import React, { useState } from 'react'
 import { OrderDetail } from './Menu.styles'
 
 const Menu = ({ category, handleOrder }) => {
     // get input value - order item count
-    const [itemCount, setItemCount] = useState({})
+    const [currCount, setCurrCount] = useState({})
     const [updatedCount, setUpdatedCount] = useState([])
 
     const handleChange = (e, index) => {
-        const itemCount = e.target.value
-        const currOrder = {
+        const currOrderItem = {
             itemId: index,
-            itemCount,
+            itemCount: e.target.value,
         }
 
-        setItemCount(currOrder)
-        setUpdatedCount((updatedCountArr) => [...updatedCountArr, currOrder])
+        setCurrCount(currOrderItem)
+        setUpdatedCount((orderItems) => [...orderItems, currOrderItem])
     }
 
     // onClick Add order item
-    const [price, setPrice] = useState('')
-    const [orderItem, setOrderItem] = useState({})
-    const [updatedOrder, setUpdatedOrder] = useState([])
-    const [isAdded, setIsAdded] = useState(true)
+    const addOrderItem = (e, name, count, price) => {
+        e.preventDefault()
 
-    const addOrderItem = (name, count, price) => {
         const sum = Number(count) * Number(price)
-
-        setPrice(sum)
-
         const currOrder = { name, count, sum }
 
-        setOrderItem(currOrder)
-        setUpdatedOrder((prevOrder) => [...prevOrder, currOrder])
-        handleOrder((prevOrder) => [...prevOrder, currOrder])
+        handleOrder((prevOrder) => {
+            prevOrder &&
+                prevOrder.map((el) => {
+                    if (el.name === name) {
+                        const index = prevOrder.indexOf(el)
+
+                        index > -1 && prevOrder.splice(index, 1)
+                    }
+                })
+
+            return [...prevOrder, currOrder]
+        })
     }
 
     return (
@@ -48,16 +49,15 @@ const Menu = ({ category, handleOrder }) => {
                                 <input
                                     type='text'
                                     placeholder='0'
-                                    value={itemCount.itemIndex}
+                                    value={currCount.itemIndex}
                                     onChange={(e) => handleChange(e, item.id)}
                                 />
                             </div>
                             <span className='price'>{item.price} lv</span>
                             <button
-                                type='button'
                                 className='primary-button'
-                                onClick={() =>
-                                    addOrderItem(item.name, itemCount.itemCount, item.price)
+                                onClick={(e) =>
+                                    addOrderItem(e, item.name, currCount.itemCount, item.price)
                                 }>
                                 Add
                             </button>

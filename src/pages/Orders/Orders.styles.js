@@ -50,11 +50,19 @@ export const CurrentOrderStyled = styled.div`
         margin-bottom: 17px;
     }
 
+    .price.large {
+        margin: 0 0 0 80px;
+    }
+
     .total-price {
         display: flex;
         justify-content: space-between;
         padding-top: 10px;
         border-top: 1px solid rgba(33, 147, 208, 0.3);
+    }
+
+    .remove-icon {
+        display: none;
     }
 `
 
