@@ -6,7 +6,7 @@ import OffersList from './pages/Offers/OffersList/OffersList'
 import OfferDetails from './pages/Offers/OfferDetails/OfferDetails'
 import Orders from './pages/Orders/Orders'
 import NotFound from './pages/NotFound/NotFound'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import UserContext from './Context'
 
 class Router extends Component {
@@ -19,15 +19,17 @@ class Router extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route path='/' exact component={Home} />
-                    <Route path='/login' exact component={Login} />
-                    <Route path='/register' exact component={Register} />
+                    <Route path='/login'>
+                        {user && user.isAuth ? <Redirect to='/' /> : <Login />}
+                    </Route>
+                    <Route path='/register'>
+                        {user && user.isAuth ? <Redirect to='/' /> : <Register />}
+                    </Route>
                     <Route path='/offers' exact component={OffersList} />
-                    {user && user.isAuth && (
-                        <>
-                            <Route path='/offers/:id' exact component={OfferDetails} />
-                            <Route path='/orders' exact component={Orders} />
-                        </>
-                    )}
+                    <Route path='/offers/:id'>
+                        {user && user.isAuth ? <OfferDetails /> : <NotFound />}
+                    </Route>
+                    <Route path='/orders'>{user && user.isAuth ? <Orders /> : <NotFound />}</Route>
                     <Route path='*' component={NotFound} />
                 </Switch>
             </BrowserRouter>

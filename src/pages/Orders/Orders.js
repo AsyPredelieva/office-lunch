@@ -40,9 +40,11 @@ const Orders = () => {
                                             <h3>
                                                 <span>{order.author.username}'s Order</span>
                                                 <span>
-                                                    {order.created_at.toLocaleString('en-GB', {
-                                                        timeZone: 'UTC',
-                                                    })}
+                                                    {order.created_at
+                                                        .toString()
+                                                        .slice(0, 19)
+                                                        .replace(/-/g, '/')
+                                                        .replace('T', ' ')}
                                                 </span>
                                             </h3>
                                             <ul>
