@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UserContext from './Context'
 import getCookie from './utils/getCookie'
+import Loader from './components/common/Loader/Loader'
 
 const App = (props) => {
     const [user, setUser] = useState(null)
@@ -51,7 +52,7 @@ const App = (props) => {
 
     // TODO Loading
     if (loading) {
-        return <div>Loading...</div>
+        return <Loader />
     }
 
     return (

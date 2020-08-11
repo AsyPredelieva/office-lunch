@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PageLayout from '../../PageLayout'
 import OfferItem from '../../../components/Offers/OfferItem/OfferItem'
+import Loader from '../../../components/common/Loader/Loader'
 import { OffersContainer, OffersList } from './OffersList.styles'
 
 const Offers = () => {
@@ -39,7 +40,7 @@ const Offers = () => {
                                 />
                             ))
                         ) : (
-                            <div>Loading...</div>
+                            <Loader />
                         )}
                     </OffersList>
                 </div>

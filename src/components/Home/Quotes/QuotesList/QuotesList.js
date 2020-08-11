@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import QuoteItem from '../QuoteItem/QuoteItem'
+import Loader from '../../../../components/common/Loader/Loader'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 import './QuotesList.styles.scss'
@@ -20,15 +21,15 @@ const QuotesList = () => {
 
     return (
         <div className='container'>
-            <Carousel showArrows={false} showThumbs={false} showStatus={false}>
-                {quotes ? (
-                    quotes.map((quote) => (
+            {quotes ? (
+                <Carousel showArrows={false} showThumbs={false} showStatus={false}>
+                    {quotes.map((quote) => (
                         <QuoteItem key={quote.id} quote={quote.quote} author={quote.author} />
-                    ))
-                ) : (
-                    <div>Loading...</div>
-                )}
-            </Carousel>
+                    ))}
+                </Carousel>
+            ) : (
+                <Loader />
+            )}
         </div>
     )
 }

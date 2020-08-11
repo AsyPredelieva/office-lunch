@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import PageLayout from '../PageLayout'
+import Loader from '../../components/common/Loader/Loader'
 import CurrentOrderItem from '../../components/Orders/CurrentOrderItem/CurrentOrderItem'
 import { OrdersContainer, CurrentOrderStyled } from './Orders.styles'
 
@@ -67,7 +68,7 @@ const Orders = () => {
                                 ))}
                             </ul>
                         ) : (
-                            <div>Loading...</div>
+                            <Loader />
                         )}
                     </div>
                 </div>
