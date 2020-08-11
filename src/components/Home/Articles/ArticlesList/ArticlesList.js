@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Article from '../ArticleItem/ArticleItem'
+import Loader from '../../../../components/common/Loader/Loader'
 
 const ArticlesList = () => {
     const [articles, setArticles] = useState([])
@@ -27,7 +28,7 @@ const ArticlesList = () => {
                     />
                 ))
             ) : (
-                <div>Loading...</div>
+                <Loader />
             )}
         </section>
     )

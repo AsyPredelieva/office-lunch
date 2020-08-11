@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import Menu from '../../../components/Offers/Menu/Menu'
 import CurrentOrder from '../../../components/Orders/CurrentOrder/CurrentOrder'
 import PageLayout from '../../PageLayout'
+import Loader from '../../../components/common/Loader/Loader'
 import { OfferDetailsStyled, OfferMenuList } from './OfferDetails.styles'
 
 const OfferDetails = () => {
@@ -44,9 +45,9 @@ const OfferDetails = () => {
         <PageLayout>
             <OfferDetailsStyled>
                 <div className='container'>
+                    <h2>Today's menu in {offer.name}</h2>
                     {offer ? (
                         <form>
-                            <h2>Today's menu in {offer.name}</h2>
                             <OfferMenuList>
                                 {offer?.menuCategories?.map((category, index) => (
                                     <Menu
@@ -67,7 +68,7 @@ const OfferDetails = () => {
                             )}
                         </form>
                     ) : (
-                        <div>Loading...</div>
+                        <Loader />
                     )}
                 </div>
             </OfferDetailsStyled>
