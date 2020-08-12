@@ -1,10 +1,16 @@
 import React from 'react'
 
-const Input = ({ label, type, id, value, onChange }) => {
+const Input = ({ label, type, id, value, onBlur, onChange }) => {
     return (
         <div className='form-field'>
             <label htmlFor={id}>{label}</label>
-            <input type={type || 'text'} id={id} value={value} onChange={onChange} />
+            <input
+                type={type || 'text'}
+                id={id}
+                value={value}
+                onBlur={onBlur}
+                onChange={onChange}
+            />
         </div>
     )
 }
