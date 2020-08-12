@@ -17,6 +17,74 @@ const Register = () => {
     const context = useContext(UserContext)
     const history = useHistory()
 
+    // validate register fields
+    const [usernameError, setUsernameError] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const [rePasswordError, setRePasswordError] = useState('')
+    const [isDisabled, setIsDisabled] = useState(true)
+
+    const validateUsername = () => {
+        if (username.length < 2 || username.length > 20) {
+            setUsernameError('Username should be between 2 and 20 symbols.')
+            return false
+        }
+        return true
+    }
+
+    const validateEmail = () => {
+        if (
+            !email.match(
+                /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+            )
+        ) {
+            setEmailError('Please enter correct e-mail.')
+            return false
+        }
+        return true
+    }
+
+    const validatePassword = () => {
+        if (!password.match(/^[a-z0-9_-]{3,16}$/g)) {
+            setPasswordError('Passoword should be between 3 and 16 symbols.')
+            return false
+        }
+        return true
+    }
+
+    const validateRePassword = () => {
+        if (password !== rePassword) {
+            setRePasswordError('Passoword should match.')
+            return false
+        }
+        setIsDisabled(false)
+        return true
+    }
+
+    const handleUsernameBlur = () => {
+        const isValidUsername = validateUsername()
+
+        isValidUsername && setUsernameError('')
+    }
+
+    const handleEmailBlur = () => {
+        const isValidEmail = validateEmail()
+
+        isValidEmail && setEmailError('')
+    }
+
+    const handlePasswordBlur = () => {
+        const isValidPassword = validatePassword()
+
+        isValidPassword && setPasswordError('')
+    }
+
+    const handleRePasswordBlur = () => {
+        const isValidRePassword = validateRePassword()
+
+        isValidRePassword && setRePasswordError('')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -51,8 +119,10 @@ const Register = () => {
                                     label='Username'
                                     id='username'
                                     value={username}
+                                    onBlur={handleUsernameBlur}
                                     onChange={(e) => setUsername(e.target.value)}
                                 />
+                                {usernameError && <p className='error'>{usernameError}</p>}
                             </div>
                             <div className='form-row'>
                                 <Input
@@ -80,8 +150,10 @@ const Register = () => {
                                     label='Email'
                                     id='email'
                                     value={email}
+                                    onBlur={handleEmailBlur}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
+                                {emailError && <p className='error'>{emailError}</p>}
                             </div>
                             <div className='form-row'>
                                 <Input
@@ -89,8 +161,10 @@ const Register = () => {
                                     label='Password'
                                     id='password'
                                     value={password}
+                                    onBlur={handlePasswordBlur}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
+                                {passwordError && <p className='error'>{passwordError}</p>}
                             </div>
                             <div className='form-row'>
                                 <Input
@@ -98,12 +172,14 @@ const Register = () => {
                                     label='Repeat Password'
                                     id='rePassword'
                                     value={rePassword}
+                                    onBlur={handleRePasswordBlur}
                                     onChange={(e) => setRePassword(e.target.value)}
                                 />
+                                {rePasswordError && <p className='error'>{rePasswordError}</p>}
                             </div>
                         </div>
                         <GridFull className='grid-full'>
-                            <Button title='Submit' type='submit' />
+                            <Button title='Submit' type='submit' disabled={isDisabled} />
                         </GridFull>
                     </form>
                 </InnerContainer>
