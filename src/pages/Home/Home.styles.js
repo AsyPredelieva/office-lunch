@@ -20,38 +20,60 @@ export const InfoContainer = styled.div`
     background-position: left -150% center, right -150% center;
     background-repeat: no-repeat;
     background-size: 75%;
+    overflow: hidden;
 
-    /*.parallax-item {
-        position: absolute;
+    .parallax-banner,
+    .parallax-outer {
+        position: absolute !important;
+        height: 518px !important;
+        top: 0px !important;
+    }
+
+    .parallax-banner-layer-0,
+    .parallax-banner-layer-1,
+    .parallax-banner-layer-2,
+    .parallax-banner-layer-3,
+    .parallax-banner-layer-4 {
+        background-size: auto !important;
+        background-repeat: no-repeat;
+        bottom: auto !important;
+        width: 200px;
+        height: 200px;
         z-index: -1;
+    }
 
-         &.tomato-left {
-            top: 27%;
-            left: 17%;
-        }
+    .parallax-banner-layer-0 {
+        top: 3% !important;
+        left: 13% !important;
+        right: auto !important;
+    }
 
-        &.tomato-right {
-            top: 1%;
-            right: 3%;
-        }
+    .parallax-banner-layer-1 {
+        top: 1% !important;
+        right: 3% !important;
+        left: auto !important;
+    }
 
-        &.olive {
-            top: 21%;
-            right: 10%;
-        }
+    .parallax-banner-layer-2 {
+        top: 21% !important;
+        right: 10% !important;
+        left: auto !important;
+    }
 
-        &.chuska-left {
-            top: 57%;
-            left: 20%;
-        }
+    .parallax-banner-layer-3 {
+        top: 57% !important;
+        left: 15% !important;
+        right: auto !important;
+    }
 
-        &.chuska-right {
-            top: 60%;
-            right: 12%;
-        }
-    } */
+    .parallax-banner-layer-4 {
+        top: 60% !important;
+        right: 9% !important;
+        left: auto !important;
+    }
 
     .container {
+        position: relative;
         z-index: 1;
     }
 `
