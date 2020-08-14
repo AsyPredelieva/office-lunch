@@ -30,11 +30,11 @@ const Nav = () => {
                     <label className='sub-menu-icon' htmlFor='sub-menu-btn'>
                         <span className='nav-icon'></span>
                     </label>
-                    <ul>
+                    {/* <ul>
                         <li>
                             <Link to={'/offers/Kamenica'}>Kamenica</Link>
                         </li>
-                    </ul>
+                    </ul> */}
                 </li>
                 {context.user && context.user.isAuth ? (
                     <>

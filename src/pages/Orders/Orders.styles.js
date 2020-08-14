@@ -34,11 +34,21 @@ export const CurrentOrderStyled = styled.div`
     background: rgba(255, 255, 255, 0.9);
     box-sizing: border-box;
 
+    @media screen and(max-width: 768px) {
+        width: 100%;
+    }
+
     h3 {
         display: flex;
         justify-content: space-between;
         padding-bottom: 10px;
         border-bottom: 1px solid rgba(33, 147, 208, 0.3);
+
+        @media screen and(max-width: 640px) {
+            span {
+                font-size: 16px;
+            }
+        }
     }
 
     & > ul > li {
@@ -65,9 +75,3 @@ export const CurrentOrderStyled = styled.div`
         display: none;
     }
 `
-
-// @media screen and(max-width: 768px) {
-//     .current-order {
-//         width: 100%;
-//     }
-// }

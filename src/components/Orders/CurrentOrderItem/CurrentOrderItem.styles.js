@@ -9,8 +9,16 @@ export const OrderDetail = styled.div`
         font-weight: 500;
         text-align: right;
 
+        @media screen and(max-width: 640px) {
+            width: 60px;
+        }
+
         &.large {
             margin: 0 100px 0 40px;
+
+            @media screen and(max-width: 640px) {
+                margin: 0 20px 0 17px;
+            }
         }
     }
 
@@ -21,13 +29,3 @@ export const OrderDetail = styled.div`
         cursor: pointer;
     }
 `
-
-// @media screen and(max-width: 640px) {
-//     .price {
-//         width: 60px;
-
-//         .large {
-//             margin: 0 20px 0 17px;
-//         }
-//     }
-// }

@@ -10,6 +10,12 @@ export const OfferDetailsStyled = styled.div`
     background-position: left top, right bottom 20%;
     background-repeat: no-repeat;
     background-size: 25%;
+
+    @media screen and(max-width: 768px) {
+        .order-detail.price {
+            margin: 0 10px;
+        }
+    }
 `
 
 export const OfferMenuList = styled.ul`
@@ -25,26 +31,20 @@ export const OfferMenuList = styled.ul`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 17px;
+
+        @media screen and(max-width: 640px) {
+            .offer-menu {
+                font-size: 14px;
+
+                .name {
+                    width: 45%;
+                    padding-right: 5px;
+                }
+            }
+
+            .order-detail.form-field {
+                max-width: 35px;
+            }
+        }
     }
 `
-
-// @media screen and(max - width: 768px) {
-//     .order - detail.price {
-//         margin: 0 10px;
-//     }
-// }
-
-// @media screen and(max - width: 640px) {
-//     .offer - menu {
-//         font - size: 14px;
-
-//         .name {
-//             width: 45%;
-//             padding - right: 5px;
-//         }
-//     }
-
-//     .order - detail.form - field {
-//         max - width: 35px;
-//     }
-// }

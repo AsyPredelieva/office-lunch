@@ -18,5 +18,9 @@ export const OrderDetail = styled.div`
         margin: 0 40px;
         flex-grow: 1;
         flex-basis: 0;
+
+        @media screen and (max-width: 768px) {
+            margin: 0 10px;
+        }
     }
 `

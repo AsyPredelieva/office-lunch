@@ -35,3 +35,21 @@
         transform: scale(0.1) rotate(0deg);
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .hero {
+        background-position: center right 25%;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        background-position: center right 100%;
+        display: flex;
+        align-items: center;
+    }
+}
