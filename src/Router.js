@@ -5,6 +5,7 @@ import Register from './pages/Register/Register'
 import OffersList from './pages/Offers/OffersList/OffersList'
 import OfferDetails from './pages/Offers/OfferDetails/OfferDetails'
 import Orders from './pages/Orders/Orders'
+import MyOrders from './pages/MyOrders/MyOrders'
 import NotFound from './pages/NotFound/NotFound'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import UserContext from './Context'
@@ -30,6 +31,9 @@ class Router extends Component {
                         {user && user.isAuth ? <OfferDetails /> : <NotFound />}
                     </Route>
                     <Route path='/orders'>{user && user.isAuth ? <Orders /> : <NotFound />}</Route>
+                    <Route path='/myOrders'>
+                        {user && user.isAuth ? <MyOrders /> : <NotFound />}
+                    </Route>
                     <Route path='*' component={NotFound} />
                 </Switch>
             </BrowserRouter>
