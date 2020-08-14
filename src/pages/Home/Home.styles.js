@@ -11,6 +11,10 @@ export const QuotesContainer = styled.div`
     font-size: 32px;
     line-height: 1.4;
     font-style: italic;
+
+    @media screen and(max-width: 768px) {
+        font-size: 22px;
+    }
 `
 
 export const InfoContainer = styled.div`
@@ -77,10 +81,3 @@ export const InfoContainer = styled.div`
         z-index: 1;
     }
 `
-
-/* Responsive */
-// @media screen and(max-width: 768px) {
-//     .quotes-container {
-//         font-size: 22px;
-//     }
-// }

@@ -31,6 +31,10 @@ export const Li = styled.li`
     strong {
         display: block;
         font-size: 20px;
+
+        @media screen and (max-width: 960px) {
+            font-size: 18px;
+        }
     }
 `
 

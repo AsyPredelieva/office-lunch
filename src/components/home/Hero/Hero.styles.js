@@ -19,6 +19,12 @@ export const Intro = styled.div`
     font-size: 20px;
     padding-top: 55px;
 
+    @media screen and (max-width: 768px) {
+        padding-top: 0;
+        width: 100%;
+        text-align: center;
+    }
+
     p {
         margin-bottom: 35px;
     }

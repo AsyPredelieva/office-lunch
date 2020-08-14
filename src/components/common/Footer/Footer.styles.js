@@ -20,6 +20,16 @@ export const FooterNav = styled(Nav)`
     display: inline-block;
     margin: 0 auto;
 
+    @media screen and (max-width: 768px) {
+        nav ul li {
+            margin: 0 10px;
+
+            &:not(:last-child):after {
+                right: -10px;
+            }
+        }
+    }
+
     ul li.sub-nav {
         &:hover,
         &:focus {
