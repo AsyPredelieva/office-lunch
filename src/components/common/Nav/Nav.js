@@ -41,10 +41,9 @@ const Nav = () => {
                         <li className='sub-nav'>
                             <Link to='/orders'>Orders</Link>
                         </li>
-                        {/* 
-                            <li className='sub-nav'>
-                                <Link to='/MyOrders'>My Orders</Link>
-                            </li> */}
+                        <li className='sub-nav'>
+                            <Link to='/MyOrders'>My Orders</Link>
+                        </li>
                         <li>
                             <a onClick={logOut} className='logout'>
                                 Logout
