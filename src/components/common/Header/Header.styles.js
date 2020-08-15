@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import welcomeIcon from '../../../assets/welcome-icon.png'
 
 export const HeaderStyled = styled.header`
     width: 100%;
@@ -76,105 +77,6 @@ export const NavContainer = styled.div`
                             color: #20232d;
                         }
                     }
-
-                    &.sub-nav {
-                        &:hover,
-                        &:focus {
-                            & > a {
-                                padding-bottom: 8px;
-                            }
-                        }
-
-                        .sub-menu-icon {
-                            /* display: block; */
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            top: 0;
-                            left: 0;
-
-                            &:after {
-                                content: '';
-                                width: 3px;
-                                height: 3px;
-                                position: absolute;
-                                top: 10px;
-                                right: 20px;
-                                border: solid rgba(33, 147, 208, 0.3);
-                                border-width: 0 3px 3px 0;
-                                display: inline-block;
-                                padding: 3px;
-                                transform: rotate(45deg);
-                                -webkit-transform: rotate(45deg);
-                            }
-                        }
-
-                        .sub-menu-btn {
-                            display: none;
-
-                            &:checked ~ ul {
-                                display: block;
-                                opacity: 1;
-                                visibility: visible;
-
-                                li {
-                                    opacity: 1;
-                                    -webkit-transform: translateY(0px);
-                                    transform: translateY(0px);
-                                    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-                                    transition: transform 0.2s, opacity 0.2s;
-                                }
-                            }
-                        }
-
-                        & > ul {
-                            position: relative;
-                            top: auto;
-                            left: auto;
-                            min-width: 100%;
-                            width: 100%;
-                            margin-bottom: 0;
-                            border-bottom: 0;
-                            display: none;
-                            opacity: 0;
-                            visibility: hidden;
-                            box-shadow: none;
-
-                            li {
-                                padding-left: 30px;
-                                opacity: 0;
-                                -webkit-transform: translateY(-40px);
-                                transform: translateY(-40px);
-                                -webkit-animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
-                                animation-timing-function: cubic-bezier(0.45, 0.005, 0, 1);
-                                box-sizing: border-box;
-
-                                &:first-child {
-                                    border-top: 1px solid rgba(33, 147, 208, 0.3);
-                                }
-
-                                &:before {
-                                    content: '';
-                                    width: 1px;
-                                    height: 1px;
-                                    position: absolute;
-                                    top: 15px;
-                                    left: 27px;
-                                    border: solid rgba(33, 147, 208, 0.3);
-                                    border-width: 0 3px 3px 0;
-                                    display: inline-block;
-                                    padding: 3px;
-                                    transform: rotate(-45deg);
-                                    -webkit-transform: rotate(-45deg);
-                                }
-
-                                a {
-                                    border-bottom: 0;
-                                    padding: 8px 20px;
-                                }
-                            }
-                        }
-                    }
                 }
             }
 
@@ -233,9 +135,10 @@ export const NavContainer = styled.div`
 `
 
 export const WelcomeBox = styled.span`
+    color: #79c150;
     font-size: 16px;
     padding-right: 80px;
-    background: url('../../assets/welcome-icon.png') right center no-repeat;
+    background: url(${welcomeIcon}) right center no-repeat;
     background-size: 50px;
     min-height: 71px;
     display: flex;
@@ -249,16 +152,3 @@ export const WelcomeBox = styled.span`
         min-height: 55px;
     }
 `
-
-// @media screen and (max-width: 640px) {
-//     header {
-//         height: 70px;
-//     }
-
-//     .welcome-box {
-//         font-size: 14px;
-//         padding-right: 30px;
-//         background-size: 25px;
-//         min-height: 55px;
-//     }
-// }

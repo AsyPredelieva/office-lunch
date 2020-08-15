@@ -37,7 +37,8 @@ export const NavStyled = styled.nav`
 
                 &.router-link-exact-active,
                 &.router-link-active,
-                &:hover {
+                &:hover,
+                &.active {
                     color: #79c150;
                 }
 
@@ -45,50 +46,6 @@ export const NavStyled = styled.nav`
                     cursor: pointer;
                 }
             }
-
-            /* &.sub-nav {
-                position: relative;
-
-                &:hover,
-                &:focus {
-                    & > a {
-                        padding-bottom: 45px;
-                    }
-                }
-
-                & > ul {
-                    display: none;
-                    position: absolute;
-                    top: 59px;
-                    left: -30px;
-                    background: #fff;
-                    min-width: 190px;
-                    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
-                    z-index: 1;
-
-                    @media screen and (min-width: 768px) {
-                        display: block;
-                    }
-
-                    li {
-                        width: 100%;
-                        display: block;
-                        margin: 0;
-
-                        &::after {
-                            display: none;
-                        }
-
-                        a {
-                            width: 100%;
-                            display: block;
-                            padding: 10px 30px;
-                            border-bottom: 1px solid rgba(33, 147, 208, 0.3);
-                            box-sizing: border-box;
-                        }
-                    }
-                }
-            } */
         }
     }
 

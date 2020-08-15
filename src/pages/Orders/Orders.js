@@ -12,7 +12,6 @@ const Orders = () => {
         getOrders().then((data) => setOrders(data))
     }, [])
 
-    console.log(orders)
     return (
         <PageLayout>
             <OrdersContainer>
