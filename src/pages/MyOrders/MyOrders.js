@@ -18,11 +18,7 @@ const MyOrders = () => {
             history.push('/')
         } else {
             const data = await response.json()
-
-            console.log('My orders data: ', data)
-            console.log('User data: ', context.user)
             const myOrder = data.filter((e) => e.author._id === context.user.id)
-            // myOrder.sort((a, b) => new Date(b._kmd.lmt) - new Date(a._kmd.lmt))
 
             setMyOrders(myOrder)
         }

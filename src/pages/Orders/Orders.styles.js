@@ -6,6 +6,7 @@ import ordersBckgr5 from '../../assets/orders-bckgr_5.png'
 
 export const OrdersContainer = styled.div`
     width: 100%;
+    min-height: 1500px;
     padding: 40px 0;
     background-image: url(${ordersBckgr1}), url(${ordersBckgr4}), url(${ordersBckgr2}),
         url(${ordersBckgr5});

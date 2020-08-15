@@ -6,6 +6,7 @@ import Teaser from '../../components/Home/Teaser/Teaser'
 import Quotes from '../../components/Home/Quotes/QuotesList/QuotesList'
 import Articles from '../../components/Home/Articles/ArticlesList/ArticlesList'
 import UserContext from '../../Context'
+import ErrorBoundary from '../../ErrorBoundary'
 import { QuotesContainer, InfoContainer } from './Home.styles'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { ParallaxBanner } from 'react-scroll-parallax'
@@ -28,7 +29,9 @@ const Home = () => {
             {context.user && context.user.isAuth && (
                 <>
                     <QuotesContainer>
-                        <Quotes />
+                        <ErrorBoundary>
+                            <Quotes />
+                        </ErrorBoundary>
                     </QuotesContainer>
                     <ParallaxProvider>
                         <InfoContainer>
@@ -58,7 +61,9 @@ const Home = () => {
                                 ]}></ParallaxBanner>
                             <div className='container'>
                                 <h2>Healthy Eating</h2>
-                                <Articles />
+                                <ErrorBoundary>
+                                    <Articles />
+                                </ErrorBoundary>
                             </div>
                         </InfoContainer>
                     </ParallaxProvider>

@@ -21,8 +21,6 @@ const Orders = () => {
         }
     }
 
-    console.log('Orders: ', orders)
-
     useEffect(() => {
         getOrders()
     }, [])
