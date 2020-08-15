@@ -11,6 +11,7 @@ export const QuotesContainer = styled.div`
     font-size: 32px;
     line-height: 1.4;
     font-style: italic;
+    text-align: center;
 `
 
 export const InfoContainer = styled.div`
