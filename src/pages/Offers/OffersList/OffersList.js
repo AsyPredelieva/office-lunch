@@ -8,18 +8,6 @@ import { OffersContainer, OffersList } from './OffersList.styles'
 const Offers = () => {
     const [offers, setOffers] = useState([])
 
-    // const getOffers = async () => {
-    //     const response = await fetch('http://localhost:9999/api/offers')
-
-    //     if (!response.ok) {
-    //         history.push('/')
-    //     } else {
-    //         const data = await response.json()
-
-    //         setOffers(data)
-    //     }
-    // }
-
     useEffect(() => {
         getOffers().then((data) => setOffers(data))
     }, [])
