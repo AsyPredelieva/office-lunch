@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { NavStyled } from './Nav.styles'
 import UserContext from '../../../Context'
 
@@ -20,29 +20,30 @@ const Nav = () => {
             </label>
             <ul>
                 <li>
-                    <Link to='/' exact='true'>
+                    <NavLink to='/' exact={true} activeClassName='active'>
                         Home
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className='sub-nav'>
-                    <Link to='/offers'>Offers</Link>
+                    <NavLink to='/offers' activeClassName='active'>
+                        Offers
+                    </NavLink>
                     <input className='sub-menu-btn' type='checkbox' id='sub-menu-btn' />
                     <label className='sub-menu-icon' htmlFor='sub-menu-btn'>
                         <span className='nav-icon'></span>
                     </label>
-                    {/* <ul>
-                        <li>
-                            <Link to={'/offers/Kamenica'}>Kamenica</Link>
-                        </li>
-                    </ul> */}
                 </li>
                 {context.user && context.user.isAuth ? (
                     <>
                         <li className='sub-nav'>
-                            <Link to='/orders'>Orders</Link>
+                            <NavLink to='/orders' activeClassName='active'>
+                                Orders
+                            </NavLink>
                         </li>
                         <li className='sub-nav'>
-                            <Link to='/MyOrders'>My Orders</Link>
+                            <NavLink to='/MyOrders' activeClassName='active'>
+                                My Orders
+                            </NavLink>
                         </li>
                         <li>
                             {/* eslint-disable-next-line */}
@@ -54,10 +55,14 @@ const Nav = () => {
                 ) : (
                     <>
                         <li>
-                            <Link to='/login'>Login</Link>
+                            <NavLink to='/login' activeClassName='active'>
+                                Login
+                            </NavLink>
                         </li>
                         <li>
-                            <Link to='/register'>Register</Link>
+                            <NavLink to='/register' activeClassName='active'>
+                                Register
+                            </NavLink>
                         </li>
                     </>
                 )}

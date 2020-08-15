@@ -23,8 +23,6 @@ const OfferDetails = () => {
         fetchData()
     }, [retailerName])
 
-    console.log('Offers ', offer)
-
     // calc order Total sum
     useEffect(() => {
         const currSum = updatedOrder.reduce((acc, curr) => acc + curr.sum, 0)
