@@ -1,6 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# lunch-time
+
+It's an easy way to order your lunch directly in the office. Let's your lunch break be longer than usual.
+
+## Available Scripts/Project setups
 
 In the project directory, you can run:
 
@@ -29,42 +33,39 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## UI & UX design
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   **Home page** - (incl. Authorised and Unauthorised part).
+    -   Unauthorised part includes short presentational text in three info boxes.
+    -   Authorised part includes Quotes and Articles dinamically rended.
+-   **Offers page** - (Authorised access only)
+    -   It presents list of offers.
+-   **Offer Details page** - (Authorised access only)
+    -   It presents each of the offers in details.
+    -   The client/user could make the choice and finilise an order.
+-   **Orders page** - (Authorised access only)
+    -   It presents list of orders sorted by Date.
+-   **My Orders page** - (Authorised access only)
+    -   It presents list of current user's orders, sorted by Date.
+-   **Login**
+-   **Register**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What’s Included?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   SASS - Extension of CSS, adding nested rules, variables, mixins, selector inheritance, and more.
+-   Language extras beyond ES6 like the object spread operator.
+-   [React Responsive Carousel](https://www.npmjs.com/package/react-responsive-carousel) - Powerful, lightweight and fully customizable carousel component for React apps.
+-   [React Scroll Parallax](https://www.npmjs.com/package/react-scroll-parallax) - React components to create parallax scroll effects for banners, images or any other DOM elements.
+-   Back-end: Created REST API /Node.js and MongoDB/
+    -   Use `npm start` or `yarn start` to run server.
+    -   Listening on port 9999
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Philosophy
 
-## Learn More
+-   **Quickly and easily** find out the actual menus.
+-   **Simply and calmly** make your choice.
+-   **Gently and precisely** order your favourite meal.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Articles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-   [Healthy eating](https://www.helpguide.org/articles/healthy-eating/healthy-eating.htm)
