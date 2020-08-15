@@ -10,7 +10,7 @@ const CurrentOrderItem = ({ id, name, count, price, removeCurrItem }) => {
                 <span>{count}</span>
                 <span className='large price'>{price.toFixed(2)} lv</span>
                 <span onClick={() => removeCurrItem(id)} className='remove-icon'>
-                    <img src={removeIcon} className='remove-icon' />
+                    <img src={removeIcon} className='remove-icon' alt='name' />
                 </span>
             </OrderDetail>
         </li>

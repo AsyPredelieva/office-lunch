@@ -35,6 +35,7 @@ const Register = () => {
     const validateEmail = () => {
         if (
             !email.match(
+                // eslint-disable-next-line
                 /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
             )
         ) {
