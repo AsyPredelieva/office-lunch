@@ -25,9 +25,7 @@ export const NavStyled = styled.nav`
                 right: -30px;
 
                 @media screen and (max-width: 960px) {
-                    &:not(:last-child):after {
-                        right: -20px;
-                    }
+                    right: -20px;
                 }
             }
 

@@ -14,11 +14,6 @@ export const FooterStyled = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-`
-
-export const FooterNav = styled(Nav)`
-    display: inline-block;
-    margin: 0 auto;
 
     @media screen and (max-width: 768px) {
         nav ul li {
@@ -29,6 +24,17 @@ export const FooterNav = styled(Nav)`
             }
         }
     }
+
+    @media screen and (max-width: 480px) {
+        nav ul li {
+            font-size: 14px;
+        }
+    }
+`
+
+export const FooterNav = styled(Nav)`
+    display: inline-block;
+    margin: 0 auto;
 
     ul li.sub-nav {
         &:hover,
