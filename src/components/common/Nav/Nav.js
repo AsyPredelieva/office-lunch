@@ -45,6 +45,7 @@ const Nav = () => {
                             <Link to='/MyOrders'>My Orders</Link>
                         </li>
                         <li>
+                            {/* eslint-disable-next-line */}
                             <a onClick={logOut} className='logout'>
                                 Logout
                             </a>

@@ -4,6 +4,8 @@ import { OrderDetail } from './Menu.styles'
 const Menu = ({ category, handleOrder }) => {
     // get input value - order item count
     const [currCount, setCurrCount] = useState({})
+
+    // eslint-disable-next-line
     const [updatedCount, setUpdatedCount] = useState([])
 
     const handleChange = (e, index) => {

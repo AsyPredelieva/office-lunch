@@ -11,10 +11,6 @@ export const QuotesContainer = styled.div`
     font-size: 32px;
     line-height: 1.4;
     font-style: italic;
-
-    @media screen and(max-width: 768px) {
-        font-size: 22px;
-    }
 `
 
 export const InfoContainer = styled.div`
@@ -26,11 +22,19 @@ export const InfoContainer = styled.div`
     background-size: 75%;
     overflow: hidden;
 
+    @media screen and (max-width: 960px) {
+        background-position: left -150% bottom, right -150% bottom;
+    }
+
     .parallax-banner,
     .parallax-outer {
         position: absolute !important;
         height: 518px !important;
         top: 0px !important;
+
+        @media screen and (max-width: 960px) {
+            height: 100% !important;
+        }
     }
 
     .parallax-banner-layer-0,

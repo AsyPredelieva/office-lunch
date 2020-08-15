@@ -11,6 +11,10 @@ export const HeroStyled = styled.div`
     background-size: cover;
     margin-bottom: 40px;
     box-shadow: inset -1px -1px 7px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: 768px) {
+        background-position: center left;
+    }
 `
 
 export const Intro = styled.div`
