@@ -1,37 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
 import PageLayout from '../PageLayout'
+import { getOrders } from '../../services/getOrders'
 import Loader from '../../components/common/Loader/Loader'
 import CurrentOrderItem from '../../components/Orders/CurrentOrderItem/CurrentOrderItem'
 import { OrdersContainer, CurrentOrderStyled } from './Orders.styles'
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
-    const history = useHistory()
-
-    const getOrders = async () => {
-        const response = await fetch('http://localhost:9999/api/orders')
-
-        if (!response.ok) {
-            history.push('/')
-        } else {
-            const data = await response.json()
-
-            setOrders(data)
-        }
-    }
 
     useEffect(() => {
-        getOrders()
+        getOrders().then((data) => setOrders(data))
     }, [])
 
+    console.log(orders)
     return (
         <PageLayout>
             <OrdersContainer>
                 <div className='container'>
                     <h2>All orders</h2>
                     <div>
-                        {orders ? (
+                        {orders.length !== 0 ? (
                             <ul>
                                 {orders.map((order) => (
                                     <li key={order._id}>

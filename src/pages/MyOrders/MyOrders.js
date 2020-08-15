@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
 import PageLayout from '../PageLayout'
+import { getOrders } from '../../services/getOrders'
 import Loader from '../../components/common/Loader/Loader'
 import CurrentOrderItem from '../../components/Orders/CurrentOrderItem/CurrentOrderItem'
 import { OrdersContainer, CurrentOrderStyled } from '../Orders/Orders.styles'
@@ -9,32 +9,20 @@ import UserContext from '../../Context'
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([])
     const context = useContext(UserContext)
-    const history = useHistory()
-
-    const getMyOrders = async () => {
-        const response = await fetch('http://localhost:9999/api/orders')
-
-        if (!response.ok) {
-            history.push('/')
-        } else {
-            const data = await response.json()
-            const myOrder = data.filter((e) => e.author._id === context.user.id)
-
-            setMyOrders(myOrder)
-        }
-    }
 
     useEffect(() => {
-        getMyOrders()
-    }, [])
+        getOrders()
+            .then((data) => data.filter((e) => e.author._id === context.user.id))
+            .then((res) => setMyOrders(res))
+    }, [context])
 
     return (
         <PageLayout>
             <OrdersContainer>
                 <div className='container'>
-                    <h2>All orders</h2>
+                    <h2>My orders</h2>
                     <div>
-                        {myOrders ? (
+                        {myOrders.length !== 0 ? (
                             <ul>
                                 {myOrders.map((order) => (
                                     <li key={order._id}>

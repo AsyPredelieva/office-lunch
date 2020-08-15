@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UserContext from './Context'
 import getCookie from './utils/getCookie'
+import ErrorBoundary from './ErrorBoundary'
 import Loader from './components/common/Loader/Loader'
 
 const App = (props) => {
@@ -57,7 +58,7 @@ const App = (props) => {
 
     return (
         <UserContext.Provider value={{ user, logIn, logOut }}>
-            {props.children}
+            <ErrorBoundary>{props.children}</ErrorBoundary>
         </UserContext.Provider>
     )
 }

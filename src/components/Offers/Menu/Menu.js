@@ -33,6 +33,8 @@ const Menu = ({ category, handleOrder }) => {
 
                         index > -1 && prevOrder.splice(index, 1)
                     }
+
+                    return [...prevOrder]
                 })
 
             return [...prevOrder, currOrder]

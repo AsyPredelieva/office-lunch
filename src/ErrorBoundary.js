@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PageLayout from './pages/PageLayout'
 
 class ErrorBoundary extends Component {
     constructor(props) {
@@ -19,7 +20,11 @@ class ErrorBoundary extends Component {
 
     render() {
         if (this.state.hasError) {
-            return <h1>Ooops... Something went wrong!</h1>
+            return (
+                <PageLayout>
+                    <h1>Ooops... Something went wrong!</h1>
+                </PageLayout>
+            )
         }
 
         return this.props.children
